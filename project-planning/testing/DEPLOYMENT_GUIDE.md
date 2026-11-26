@@ -72,6 +72,58 @@ npm run build        # hasil di frontend/dist/
 
 **Perhatikan:** sebagian PaaS gratis "menidurkan" layanan saat tidak aktif sehingga permintaan pertama lambat. Uji sebelum sesi kelas.
 
+## 4b. Jalur A-praktis — Netlify (frontend) + Render (backend) + Neon (PostgreSQL)
+
+Konfigurasi sudah ada di repo: `netlify.toml` (root) dan `render.yaml` (root). Semua layanan punya paket gratis.
+Netlify **meneruskan** `/api/*` ke Render, sehingga browser melihat satu domain: tidak perlu `CORS_ORIGINS`
+maupun `VITE_API_BASE_URL`.
+
+> Catatan: paket gratis Render "tidur" setelah ±15 menit tanpa pengunjung; permintaan pertama setelahnya
+> bisa 30–60 detik. Buka aplikasi beberapa menit sebelum sesi kelas.
+> Jangan memakai SQLite di Render gratis — disknya terhapus setiap deploy/restart (data siswa hilang).
+
+### Langkah 1 — Basis data (Neon)
+1. Daftar di https://neon.tech (boleh dengan akun GitHub) → **New Project** → region terdekat (mis. Singapore).
+2. Buka **Connection Details**, salin *connection string* (`postgresql://…?sslmode=require`).
+   Simpan sementara di tempat aman — ini rahasia, **jangan** ditempel ke GitHub.
+
+### Langkah 2 — Backend (Render)
+1. Daftar di https://render.com dengan akun GitHub.
+2. **New → Blueprint** → pilih repositori ini → Render membaca `render.yaml` dan membuat layanan `jelajahgaris-api`.
+3. Saat diminta mengisi variabel:
+   - `DATABASE_URL` = connection string Neon dari Langkah 1.
+   - `GEMINI_API_KEY` = kunci Gemini (kosongkan bila AI tidak dipakai).
+   - `JWT_SECRET` dibuat otomatis oleh Render.
+4. Tunggu deploy selesai (log menampilkan `alembic upgrade` → `seed-content` → `Uvicorn running`).
+5. Catat URL layanan, mis. `https://jelajahgaris-api.onrender.com`. Uji: buka `<URL>/api/v1/health` → `{"status":"ok"…}`.
+
+### Langkah 3 — Frontend (Netlify)
+1. **Jika URL Render berbeda** dari `https://jelajahgaris-api.onrender.com`, ubah baris `to = …` di `netlify.toml`,
+   commit, dan push.
+2. Netlify → **Add new site → Import an existing project → GitHub** → pilih repositori ini.
+   Pengaturan build terbaca dari `netlify.toml` (base `frontend`, perintah `npm run build`, publish `dist`).
+3. **Deploy**. Setelah selesai, buka URL Netlify (mis. `https://nama-situs.netlify.app`).
+4. (Opsional) **Site configuration → Change site name** agar alamatnya mudah diingat siswa.
+
+### Langkah 4 — Buat akun (dari laptop, ke basis data Neon)
+Render gratis tidak menyediakan Shell, jadi akun dibuat dari laptop dengan menunjuk ke basis data Neon.
+Di PowerShell, dari folder `backend`:
+
+```powershell
+.venv\Scripts\python -m pip install -r requirements.txt     # sekali saja (memasang driver PostgreSQL)
+$env:DATABASE_URL = "postgresql://...salinan-dari-Neon..."
+.venv\Scripts\python -m app.cli create-researcher --username PENELITI-01
+.venv\Scripts\python -m app.cli create-students --class KLS8A --count 30 --label "Kelas 8A"
+Remove-Item Env:DATABASE_URL                                 # kembali ke basis data lokal
+```
+
+- PIN peneliti tampil sekali di layar; daftar kode+PIN siswa tersimpan di `backend/exports/akun_KLS8A.csv`
+  (sudah dikecualikan dari Git — simpan di tempat aman).
+- Perintah `demo` (PIN 123456) **ditolak** untuk basis data online.
+- Masuk sebagai peneliti → izinkan Tanya Gari per kelas bila diperlukan (ADR-018).
+
+### Langkah 5 — Periksa (§8) lalu bagikan URL Netlify ke siswa.
+
 ## 5. Jalur B — Satu VPS (SQLite, kendali penuh)
 
 1. Siapkan VPS Linux (Ubuntu LTS), buat pengguna non-root, aktifkan firewall (port 22, 80, 443).

@@ -96,3 +96,13 @@ Edit `backend/content/pgl/units/u*.json` (atau `assessments/*.json`), naikkan `c
 ## Deployment
 
 Lihat [project-planning/testing/DEPLOYMENT_GUIDE.md](project-planning/testing/DEPLOYMENT_GUIDE.md). Perintah `demo` diblokir saat `ENV=production`.
+
+## Deploy online (Netlify + Render + Neon)
+
+Frontend di Netlify (`netlify.toml`), backend di Render (`render.yaml`), basis data PostgreSQL di Neon.
+Langkah lengkap: [`project-planning/testing/DEPLOYMENT_GUIDE.md` §4b](project-planning/testing/DEPLOYMENT_GUIDE.md).
+Rahasia (`DATABASE_URL`, `GEMINI_API_KEY`) diisi di dashboard Render — **jangan** di-commit.
+
+## Menjalankan di komputer sendiri (Windows)
+
+Klik dua kali `jalankan-server.bat`, lalu buka http://localhost:8000. Biarkan jendelanya terbuka selama web dipakai.

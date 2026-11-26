@@ -1,0 +1,60 @@
+# Netlify — frontend (React + Vite PWA). Backend berjalan di Render (lihat render.yaml).
+# Panduan langkah demi langkah: project-planning/testing/DEPLOYMENT_GUIDE.md §4b.
+
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Semua panggilan API diteruskan (proxy) ke server Render, sehingga bagi browser tampilan & API
+# berada di satu domain: tidak perlu CORS dan CSP `connect-src 'self'` tetap berlaku.
+# GANTI alamat di bawah bila Render memberi URL lain (lihat dashboard Render → layanan → URL).
+[[redirects]]
+  from = "/api/*"
+  to = "https://jelajahgaris-api.onrender.com/api/:splat"
+  status = 200
+  force = true
+
+# SPA fallback: rute seperti /beranda atau /modul/pgl dilayani index.html.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Header keamanan — sama dengan backend (SECURITY_AND_PRIVACY §5, app/core/web.py).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+
+# Berkas yang harus selalu dicek ulang agar pembaruan PWA sampai ke siswa (PWA_SPECIFICATION §6).
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+[[headers]]
+  for = "/registerSW.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache"
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+# Aset ber-hash dari Vite aman di-cache lama.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

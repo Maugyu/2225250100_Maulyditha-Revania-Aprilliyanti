@@ -51,3 +51,20 @@ def test_api_routes_not_swallowed(spa_client):
 def test_path_traversal_blocked(spa_client):
     r = spa_client.get("/..%2Frahasia.txt")
     assert "JANGAN" not in r.text
+
+
+def test_normalize_db_url_for_managed_postgres():
+    from app.core.database import normalize_db_url
+
+    assert normalize_db_url("postgres://u:p@h/db") == "postgresql+psycopg://u:p@h/db"
+    assert normalize_db_url("postgresql://u:p@h/db?sslmode=require") == "postgresql+psycopg://u:p@h/db?sslmode=require"
+    assert normalize_db_url("postgresql+psycopg://u:p@h/db") == "postgresql+psycopg://u:p@h/db"
+    assert normalize_db_url("sqlite:///x.db") == "sqlite:///x.db"
+
+
+def test_demo_accounts_refused_for_online_database(monkeypatch):
+    from app import cli
+    from app.core.config import get_settings
+
+    monkeypatch.setattr(get_settings(), "database_url", "postgresql://u:p@neon.example/db")
+    assert cli.main(["demo"]) == 1

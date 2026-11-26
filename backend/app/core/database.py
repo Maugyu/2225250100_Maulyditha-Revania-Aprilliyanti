@@ -13,8 +13,22 @@ class Base(DeclarativeBase):
     pass
 
 
+def normalize_db_url(url: str) -> str:
+    """Neon/Render memberi `postgres://` atau `postgresql://`; SQLAlchemy butuh nama driver psycopg 3."""
+    url = url.strip()
+    for prefix in ("postgres://", "postgresql://"):
+        if url.startswith(prefix):
+            return "postgresql+psycopg://" + url[len(prefix):]
+    return url
+
+
 def make_engine(url: str) -> Engine:
-    kwargs = {"connect_args": {"check_same_thread": False}} if url.startswith("sqlite") else {}
+    url = normalize_db_url(url)
+    if url.startswith("sqlite"):
+        kwargs = {"connect_args": {"check_same_thread": False}}
+    else:
+        # pool_pre_ping: PostgreSQL terkelola (mis. Neon) menutup koneksi menganggur; cek sebelum dipakai.
+        kwargs = {"pool_pre_ping": True, "pool_recycle": 300}
     engine = create_engine(url, **kwargs)
     if url.startswith("sqlite"):
 

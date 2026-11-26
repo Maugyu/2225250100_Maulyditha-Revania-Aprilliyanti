@@ -144,8 +144,10 @@ def cmd_delete_class(args) -> int:
 
 def cmd_demo(_args) -> int:
     """Akun demo dengan PIN tetap. HANYA untuk pengembangan lokal."""
-    if get_settings().is_production:
-        print("Perintah demo dilarang di produksi.", file=sys.stderr)
+    s = get_settings()
+    # Juga tolak bila DATABASE_URL menunjuk basis data online (mis. Neon) walau dijalankan dari laptop.
+    if s.is_production or not s.database_url.strip().startswith("sqlite"):
+        print("Perintah demo hanya untuk basis data lokal (SQLite), bukan produksi.", file=sys.stderr)
         return 1
     with SessionLocal() as db:
         c = _get_class(db, "DEMO", "Kelas demo (lokal)")
