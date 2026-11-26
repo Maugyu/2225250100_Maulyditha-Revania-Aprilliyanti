@@ -1,0 +1,138 @@
+/* Design token — satu-satunya sumber nilai warna/ukuran (ADR-011).
+   Gaya visual mengikuti referensi pemilik: pastel mint–biru, kartu membulat, aksen kuning. */
+:root {
+  --color-bg: #f4faf8;
+  --color-bg-2: #eef7fb;
+  --color-bg-3: #f8fbe9;
+  --color-surface: #ffffff;
+  --color-surface-2: #f2f9fb;
+  --color-panel: linear-gradient(160deg, #eaf6fb 0%, #f3fbf3 100%);
+  --color-border: #dfedef;
+  --color-border-strong: #c7dfe3;
+  --color-text: #17191d;
+  --color-text-muted: #5b6570;
+  --color-dot: rgba(23, 25, 29, 0.05);
+
+  --color-primary: #ffd84d;
+  --color-primary-hover: #ffcd1a;
+  --color-primary-text: #1b1600;
+  --color-accent: #1aa39a;
+  --color-accent-soft: #d8f3ef;
+  --color-mint: #8fe0cf;
+  --color-lime: #c4e86b;
+  --color-sky: #7cc8f0;
+
+  --color-success: #2f9e44;
+  --color-success-soft: #e3f6e6;
+  --color-warning: #c46a00;
+  --color-warning-soft: #fff1dc;
+  --color-error: #c92a2a;
+  --color-error-soft: #ffe6e6;
+  --color-highlight: #ffe58f;
+
+  --color-line-1: #1aa39a;
+  --color-line-2: #e8590c;
+  --color-grid: #dbe7ea;
+  --color-axis: #6b7780;
+
+  --duck-body: #ffd43b;
+  --duck-shade: #f5b301;
+  --duck-beak: #ff922b;
+  --duck-ink: #1f2a33;
+
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-hero: clamp(2.4rem, 6vw, 4.6rem);
+  --leading-body: 1.55;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(20, 40, 50, 0.06), 0 2px 8px rgba(20, 40, 50, 0.05);
+  --shadow-md: 0 6px 24px rgba(20, 60, 70, 0.09);
+  --shadow-primary: 0 6px 18px rgba(255, 196, 0, 0.35);
+
+  --motion-fast: 150ms;
+  --tap: 44px;
+  --content-max: 1180px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --color-bg: #0f1518;
+    --color-bg-2: #101b20;
+    --color-bg-3: #141a12;
+    --color-surface: #172126;
+    --color-surface-2: #1c292f;
+    --color-panel: linear-gradient(160deg, #1a2a31 0%, #1b2a22 100%);
+    --color-border: #26363d;
+    --color-border-strong: #33474f;
+    --color-text: #eef3f5;
+    --color-text-muted: #a5b3ba;
+    --color-dot: rgba(255, 255, 255, 0.04);
+    --color-accent: #3dd3c6;
+    --color-accent-soft: #163a37;
+    --color-success: #69db7c;
+    --color-success-soft: #173322;
+    --color-warning: #ffb44d;
+    --color-warning-soft: #3a2a12;
+    --color-error: #ff8787;
+    --color-error-soft: #3b1c1c;
+    --color-highlight: #6b5a12;
+    --color-line-1: #3dd3c6;
+    --color-line-2: #ff922b;
+    --color-grid: #24343a;
+    --color-axis: #8ea0a8;
+    --duck-ink: #0f1518;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+:root[data-theme='dark'] {
+  --color-bg: #0f1518;
+  --color-bg-2: #101b20;
+  --color-bg-3: #141a12;
+  --color-surface: #172126;
+  --color-surface-2: #1c292f;
+  --color-panel: linear-gradient(160deg, #1a2a31 0%, #1b2a22 100%);
+  --color-border: #26363d;
+  --color-border-strong: #33474f;
+  --color-text: #eef3f5;
+  --color-text-muted: #a5b3ba;
+  --color-dot: rgba(255, 255, 255, 0.04);
+  --color-accent: #3dd3c6;
+  --color-accent-soft: #163a37;
+  --color-success: #69db7c;
+  --color-success-soft: #173322;
+  --color-warning: #ffb44d;
+  --color-warning-soft: #3a2a12;
+  --color-error: #ff8787;
+  --color-error-soft: #3b1c1c;
+  --color-highlight: #6b5a12;
+  --color-line-1: #3dd3c6;
+  --color-line-2: #ff922b;
+  --color-grid: #24343a;
+  --color-axis: #8ea0a8;
+  --duck-ink: #0f1518;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.35);
+}

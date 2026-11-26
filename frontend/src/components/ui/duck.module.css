@@ -1,0 +1,79 @@
+/* Animasi Gari (ADR-022) — hanya bila prop `animated`. Dimatikan untuk prefers-reduced-motion. */
+.alive {
+  overflow: visible;
+}
+.alive .body {
+  transform-box: view-box;
+  transform-origin: 100px 210px;
+  animation: bob 2.8s ease-in-out infinite;
+}
+.alive .head {
+  transform-box: view-box;
+  transform-origin: 100px 140px;
+  animation: tilt 5.6s ease-in-out infinite;
+}
+.alive .wingL,
+.alive .wingR {
+  transform-box: fill-box;
+}
+.alive .wingL {
+  transform-origin: 80% 15%;
+  animation: flapL 2.8s ease-in-out infinite;
+}
+.alive .wingR {
+  transform-origin: 20% 15%;
+  animation: flapR 1.4s ease-in-out infinite;
+}
+.alive .eyes {
+  transform-box: view-box;
+  transform-origin: 100px 84px;
+  animation: blink 4.2s infinite;
+}
+
+/* Diketuk: melompat sekali. */
+.hop .body {
+  animation: hop 0.6s cubic-bezier(0.3, 1.6, 0.5, 1) 1, bob 2.8s ease-in-out 0.6s infinite;
+}
+.hop .wingL,
+.hop .wingR {
+  animation-duration: 0.3s;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes tilt {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-4deg); }
+  60% { transform: rotate(3deg); }
+}
+@keyframes flapL {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+}
+@keyframes flapR {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-28deg); }
+}
+@keyframes blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+@keyframes hop {
+  0% { transform: translateY(0) scale(1, 1); }
+  20% { transform: translateY(2px) scale(1.06, 0.92); }
+  55% { transform: translateY(-26px) scale(0.96, 1.05); }
+  100% { transform: translateY(0) scale(1, 1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alive .body,
+  .alive .head,
+  .alive .wingL,
+  .alive .wingR,
+  .alive .eyes,
+  .hop .body {
+    animation: none;
+  }
+}

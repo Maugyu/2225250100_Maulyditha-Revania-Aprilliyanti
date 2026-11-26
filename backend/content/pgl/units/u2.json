@@ -1,0 +1,442 @@
+{
+  "slug": "u2-gradien",
+  "order_index": 2,
+  "title": "Gradien sebagai Laju Perubahan",
+  "goal": "Mengartikan gradien sebagai perubahan y untuk setiap x bertambah 1.",
+  "is_optional": false,
+  "activities": [
+    {
+      "slug": "u2-jelajah",
+      "phase": "explore",
+      "title": "Menjelajah kemiringan",
+      "literacy_processes": [
+        "reasoning",
+        "interpret"
+      ],
+      "indicators": [
+        "E3",
+        "I1"
+      ],
+      "content": {
+        "steps": [
+          {
+            "key": "pemantik",
+            "type": "info",
+            "title": "Kenapa gradien?",
+            "body": "Tarif ojek naik **sekian rupiah per km**. Air di tangki berkurang **sekian liter per jam**. Keduanya adalah [[laju_perubahan|laju perubahan]].\n\nDalam grafik, laju perubahan terlihat sebagai **kemiringan garis** yang disebut [[gradien]] dan ditulis $m$."
+          },
+          {
+            "key": "jelajah-besar",
+            "type": "explore",
+            "title": "Jelajah",
+            "mode": "single",
+            "prompt": "Geser slider $m$ dan perhatikan segitiga naik/jalan. Coba $m = 1$, lalu $m = 3$.",
+            "initial": {
+              "m": "1",
+              "c": "0"
+            },
+            "lock_c": true,
+            "show_triangle": true,
+            "question": {
+              "prompt": "Saat $m$ diperbesar, garisnya …",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "makin curam"
+                },
+                {
+                  "id": "b",
+                  "text": "makin landai",
+                  "feedback": "Coba bandingkan m = 1 dan m = 3 sekali lagi."
+                },
+                {
+                  "id": "c",
+                  "text": "tidak berubah"
+                }
+              ],
+              "answer": "a"
+            },
+            "hints": [
+              "Lihat tinggi segitiga saat jalan 1 langkah ke kanan.",
+              "Pada $m = 3$, setiap 1 ke kanan naik 3.",
+              "Naik lebih banyak per langkah berarti …"
+            ],
+            "solution": "Makin besar $m$, makin banyak garis naik per 1 langkah ke kanan — garis makin curam."
+          },
+          {
+            "key": "jelajah-negatif",
+            "type": "explore",
+            "title": "Jelajah",
+            "mode": "single",
+            "prompt": "Sekarang buat $m$ bernilai negatif, misalnya $m = -2$.",
+            "initial": {
+              "m": "2",
+              "c": "0"
+            },
+            "lock_c": true,
+            "show_triangle": true,
+            "question": {
+              "prompt": "Jika $m$ negatif, garisnya …",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "naik dari kiri ke kanan"
+                },
+                {
+                  "id": "b",
+                  "text": "turun dari kiri ke kanan"
+                },
+                {
+                  "id": "c",
+                  "text": "mendatar"
+                }
+              ],
+              "answer": "b"
+            },
+            "hints": [
+              "Baca garis dari kiri ke kanan.",
+              "Perhatikan arah segitiga: jalan ke kanan, lalu naik atau turun?",
+              "$m = -2$: setiap 1 ke kanan, turun 2."
+            ],
+            "solution": "Gradien negatif berarti y berkurang saat x bertambah, sehingga garis turun dari kiri ke kanan."
+          },
+          {
+            "key": "jelajah-nol",
+            "type": "explore",
+            "title": "Jelajah",
+            "mode": "single",
+            "prompt": "Coba atur $m = 0$.",
+            "initial": {
+              "m": "-1",
+              "c": "2"
+            },
+            "lock_c": true,
+            "show_triangle": true,
+            "question": {
+              "prompt": "Jika $m = 0$, garisnya …",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "tegak"
+                },
+                {
+                  "id": "b",
+                  "text": "mendatar"
+                },
+                {
+                  "id": "c",
+                  "text": "melalui (0, 0)"
+                }
+              ],
+              "answer": "b"
+            },
+            "hints": [
+              "Jika $m = 0$, berapa perubahan y setiap ke kanan?",
+              "Tidak ada kenaikan maupun penurunan.",
+              "Garis tanpa naik-turun itu garis …"
+            ],
+            "solution": "Jika $m = 0$, y tidak berubah, sehingga garis mendatar."
+          }
+        ]
+      }
+    },
+    {
+      "slug": "u2-contoh",
+      "phase": "example",
+      "title": "Menghitung gradien dari dua titik",
+      "literacy_processes": [
+        "employ"
+      ],
+      "indicators": [
+        "E2"
+      ],
+      "content": {
+        "steps": [
+          {
+            "key": "contoh-1",
+            "type": "worked_example",
+            "title": "Saya lakukan",
+            "prompt": "Hitung [[gradien]] garis yang melalui $(2, 3)$ dan $(4, 7)$.",
+            "lines": [
+              {
+                "label": "Langkah 1 · Tulis rumus",
+                "tex": "m = \\dfrac{y_2 - y_1}{x_2 - x_1}",
+                "note": "Perubahan y dibagi perubahan x."
+              },
+              {
+                "label": "Langkah 2 · Masukkan angka",
+                "tex": "m = \\dfrac{\\hl{7} - \\hl{3}}{\\hl{4} - \\hl{2}}",
+                "note": "Titik 1 = (2, 3), titik 2 = (4, 7). Urutannya sama di atas dan di bawah."
+              },
+              {
+                "label": "Langkah 3 · Hitung atas dan bawah",
+                "tex": "m = \\dfrac{\\hl{4}}{\\hl{2}}"
+              },
+              {
+                "label": "Langkah 4 · Sederhanakan",
+                "tex": "m = \\hl{2}",
+                "note": "Artinya: setiap x bertambah 1, y bertambah 2."
+              }
+            ]
+          },
+          {
+            "key": "contoh-2",
+            "type": "worked_example",
+            "title": "Kita lakukan",
+            "prompt": "Hitung gradien garis yang melalui $(-1, 4)$ dan $(3, -4)$. Satu langkah kamu yang isi.",
+            "lines": [
+              {
+                "label": "Langkah 1 · Tulis rumus",
+                "tex": "m = \\dfrac{y_2 - y_1}{x_2 - x_1}"
+              },
+              {
+                "label": "Langkah 2 · Masukkan angka",
+                "tex": "m = \\dfrac{\\hl{-4} - \\hl{4}}{\\hl{3} - (\\hl{-1})}",
+                "note": "Perhatikan kurung untuk bilangan negatif."
+              },
+              {
+                "label": "Langkah 3 · Hitung pembilang (atas)",
+                "tex": "-4 - 4 =",
+                "blank": {
+                  "answer": "-8",
+                  "wrong_answers": [
+                    {
+                      "value": "0",
+                      "code": "SIGN_FLIP",
+                      "message": "−4 − 4 berarti mundur 4 lagi dari −4."
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Langkah 4 · Hitung penyebut (bawah)",
+                "tex": "3 - (-1) = 4"
+              },
+              {
+                "label": "Langkah 5 · Sederhanakan",
+                "tex": "m = \\dfrac{-8}{4} = \\hl{-2}",
+                "note": "Gradien negatif: garis turun."
+              }
+            ],
+            "hints": [
+              "Mulai dari −4 di garis bilangan.",
+              "Dikurangi 4 berarti bergerak 4 langkah ke kiri.",
+              "−4 → −5 → −6 → −7 → …"
+            ],
+            "solution": "$-4 - 4 = -8$."
+          },
+          {
+            "key": "latihan-1",
+            "type": "numeric",
+            "title": "Kamu lakukan",
+            "prompt": "Hitung gradien garis yang melalui $(1, 2)$ dan $(3, 8)$.",
+            "answer": "3",
+            "wrong_answers": [
+              {
+                "value": "-3",
+                "code": "ORDER_MISMATCH",
+                "message": "Urutan titik di atas dan di bawah harus sama."
+              },
+              {
+                "value": "1/3",
+                "code": "ARITH",
+                "message": "Perubahan y ada di atas, perubahan x di bawah."
+              }
+            ],
+            "hints": [
+              "Tulis dulu rumusnya.",
+              "$m = \\dfrac{8 - 2}{3 - 1}$",
+              "$\\dfrac{6}{2} = \\dots$"
+            ],
+            "solution": "$m = \\dfrac{8-2}{3-1} = \\dfrac{6}{2} = 3$."
+          },
+          {
+            "key": "latihan-2",
+            "type": "numeric",
+            "title": "Kamu lakukan",
+            "prompt": "Hitung gradien garis yang melalui $(0, 5)$ dan $(4, 3)$. Tulis pecahan seperti `-1/2`.",
+            "answer": "-1/2",
+            "wrong_answers": [
+              {
+                "value": "1/2",
+                "code": "SIGN_FLIP",
+                "message": "Nilainya sudah tepat, coba periksa tandanya: y berkurang dari 5 ke 3."
+              },
+              {
+                "value": "-2",
+                "code": "ARITH",
+                "message": "Perubahan y ada di atas, perubahan x di bawah."
+              }
+            ],
+            "hints": [
+              "Perubahan y: dari 5 ke 3.",
+              "$m = \\dfrac{3 - 5}{4 - 0}$",
+              "$\\dfrac{-2}{4}$ disederhanakan menjadi …"
+            ],
+            "solution": "$m = \\dfrac{3-5}{4-0} = \\dfrac{-2}{4} = -\\dfrac{1}{2}$."
+          }
+        ]
+      }
+    },
+    {
+      "slug": "u2-konteks",
+      "phase": "context_problem",
+      "title": "Air di tangki",
+      "literacy_processes": [
+        "formulate",
+        "employ",
+        "interpret",
+        "evaluate",
+        "reasoning"
+      ],
+      "indicators": [
+        "F1",
+        "F2",
+        "E2",
+        "I1",
+        "I2",
+        "E1"
+      ],
+      "context_category": "environment",
+      "content": {
+        "situation": "Tangki air sekolah dipakai untuk menyiram taman. Pukul {{s1|07.00 tangki berisi 120 liter}}. Pukul {{s2|10.00 isinya tinggal 75 liter}}. Tangki itu {{s3|berwarna biru}} dan berada {{s4|di belakang kantin}}. Pengurangannya tetap setiap jam.",
+        "steps": [
+          {
+            "key": "baca",
+            "type": "info",
+            "title": "Baca situasi",
+            "process": "formulate",
+            "body": "Baca situasi di atas baik-baik. Pertanyaan utamanya: **berapa liter air berkurang setiap jam?**"
+          },
+          {
+            "key": "tandai",
+            "type": "identify_info",
+            "title": "Tandai informasi",
+            "process": "formulate",
+            "prompt": "Ketuk bagian yang **penting** untuk menghitung pengurangan air per jam.",
+            "relevant": [
+              "s1",
+              "s2"
+            ],
+            "hints": [
+              "Informasi mana yang berisi waktu dan jumlah air?",
+              "Warna dan letak tangki tidak memengaruhi perhitungan.",
+              "Ada dua bagian penting: keadaan pukul 07.00 dan pukul 10.00."
+            ],
+            "solution": "Yang penting: pukul 07.00 berisi 120 liter dan pukul 10.00 tinggal 75 liter."
+          },
+          {
+            "key": "diketahui",
+            "type": "known_asked",
+            "title": "Diketahui & Ditanya",
+            "process": "formulate",
+            "prompt": "Tulis apa yang diketahui dan apa yang ditanyakan.",
+            "required_values": [
+              "120",
+              "75",
+              "7",
+              "10"
+            ],
+            "hints": [
+              "Ada dua waktu dan dua jumlah air.",
+              "Contoh baris: \"Pukul 07.00\" = \"120 liter\".",
+              "Yang ditanya: perubahan air setiap jam."
+            ],
+            "solution": "Diketahui: pukul 07.00 → 120 L; pukul 10.00 → 75 L. Ditanya: perubahan air per jam."
+          },
+          {
+            "key": "rencana",
+            "type": "plan",
+            "title": "Rencanakan",
+            "process": "planning",
+            "prompt": "Sebelum menghitung, susun **rencana** penyelesaiannya. Ketuk langkah-langkah sesuai urutan yang tepat.",
+            "items": [
+              {
+                "id": "p3",
+                "text": "Tafsirkan arti tanda gradiennya"
+              },
+              {
+                "id": "p1",
+                "text": "Ubah informasi menjadi dua titik (jam, liter)"
+              },
+              {
+                "id": "p4",
+                "text": "Cek: apakah masuk akal untuk isi tangki?"
+              },
+              {
+                "id": "p2",
+                "text": "Hitung gradien dari dua titik itu"
+              }
+            ],
+            "answer": [
+              "p1",
+              "p2",
+              "p3",
+              "p4"
+            ],
+            "hints": [
+              "Apa yang harus kamu punya sebelum bisa memakai rumus gradien?",
+              "Rumus gradien butuh dua titik. Titik dibuat dari informasi soal.",
+              "Urutannya: siapkan titik → hitung → tafsirkan → cek kewajaran."
+            ],
+            "solution": "Titik → gradien → tafsir tanda → cek kewajaran."
+          },
+          {
+            "key": "hitung",
+            "type": "numeric",
+            "title": "Selesaikan",
+            "process": "employ",
+            "prompt": "Hitung gradien (perubahan liter per jam). Gunakan titik $(7, 120)$ dan $(10, 75)$.",
+            "unit": "liter per jam",
+            "answer": "-15",
+            "wrong_answers": [
+              {
+                "value": "15",
+                "code": "SIGN_FLIP",
+                "message": "Nilainya sudah tepat, coba periksa tandanya: airnya berkurang atau bertambah?"
+              }
+            ],
+            "hints": [
+              "Perubahan y = 75 − 120. Perubahan x = 10 − 7.",
+              "$m = \\dfrac{75 - 120}{10 - 7}$",
+              "$\\dfrac{-45}{3} = \\dots$"
+            ],
+            "solution": "$m = \\dfrac{75-120}{10-7} = \\dfrac{-45}{3} = -15$ liter per jam."
+          },
+          {
+            "key": "tafsir",
+            "type": "interpret",
+            "title": "Tafsirkan",
+            "process": "interpret",
+            "prompt": "Apa arti tanda **negatif** pada gradien yang kamu dapat?",
+            "model_answer": "Tanda negatif berarti air di tangki berkurang 15 liter setiap jam.",
+            "max_length": 300
+          },
+          {
+            "key": "evaluasi",
+            "type": "evaluate",
+            "title": "Evaluasi",
+            "process": "evaluate",
+            "prompt": "Jika pengurangannya tetap, pukul berapa tangki akan kosong? Apakah wajar model ini dipakai terus sampai pukul 18.00?",
+            "model_answer": "Masih tersisa 75 liter, berkurang 15 liter per jam, jadi habis 5 jam setelah pukul 10.00, yaitu pukul 15.00. Setelah itu model tidak berlaku, karena isi air tidak mungkin negatif.",
+            "max_length": 400
+          },
+          {
+            "key": "refleksi",
+            "type": "reflection",
+            "title": "Jelaskan ke temanmu",
+            "prompt_key": "jelaskan-u2",
+            "prompt": "Temanmu bingung: \"Kenapa garis $y = -2x + 1$ turun?\" Jelaskan dengan kalimatmu sendiri.",
+            "pattern": [
+              "Gradien = perubahan y ÷ perubahan x.",
+              "Urutan titik di atas dan di bawah harus sama.",
+              "m positif: naik; m negatif: turun; m = 0: mendatar.",
+              "Dalam cerita, gradien berarti \"bertambah/berkurang sekian per satuan\"."
+            ],
+            "transfer_prompt": "Sebutkan satu situasi lain yang punya laju perubahan (bertambah/berkurang sekian per satuan)."
+          }
+        ]
+      }
+    }
+  ]
+}

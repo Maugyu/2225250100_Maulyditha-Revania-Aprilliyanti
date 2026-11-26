@@ -1,0 +1,91 @@
+{
+  "slug": "u0-prasyarat",
+  "order_index": 0,
+  "title": "Cek Prasyarat",
+  "goal": "Mengecek kesiapan: titik koordinat, bilangan bertanda, dan pecahan.",
+  "is_optional": true,
+  "activities": [
+    {
+      "slug": "u0-cek",
+      "phase": "practice",
+      "title": "Cek kesiapan singkat",
+      "literacy_processes": ["employ"],
+      "indicators": ["E2"],
+      "content": {
+        "steps": [
+          {
+            "key": "pembuka",
+            "type": "info",
+            "title": "Pemanasan",
+            "body": "Enam soal singkat untuk mengecek bekal sebelum belajar garis lurus. Tidak dinilai — santai saja. Kalau salah, Gari akan memberi penyegar singkat."
+          },
+          {
+            "key": "titik-1",
+            "type": "choice",
+            "title": "Koordinat",
+            "prompt": "Titik $(3, -2)$ letaknya …",
+            "options": [
+              {"id": "a", "text": "3 ke kanan, 2 ke bawah"},
+              {"id": "b", "text": "3 ke kiri, 2 ke atas", "feedback": "Angka pertama positif berarti ke kanan."},
+              {"id": "c", "text": "2 ke kanan, 3 ke bawah", "code": "XY_SWAP"}
+            ],
+            "answer": "a",
+            "hints": ["Pada $(x, y)$, mana yang dibaca lebih dulu?", "$x$ = geser mendatar, $y$ = naik/turun. Tanda negatif artinya ke kiri/ke bawah.", "$x = 3$ → 3 ke kanan. Sekarang $y = -2$ …"],
+            "solution": "$(3, -2)$: $x = 3$ berarti 3 ke kanan, $y = -2$ berarti 2 ke bawah."
+          },
+          {
+            "key": "titik-2",
+            "type": "plot_points",
+            "title": "Koordinat",
+            "prompt": "Ketuk grid untuk menempatkan titik $(-2, 1)$.",
+            "grid": {"x_min": -4, "x_max": 4, "y_min": -4, "y_max": 4},
+            "points": [[-2, 1]],
+            "show_line": false,
+            "hints": ["Mulai dari titik $(0, 0)$.", "Geser 2 ke kiri dulu, lalu naik 1.", "Titiknya ada di kiri sumbu-y dan di atas sumbu-x."],
+            "solution": "Dari $(0,0)$ geser 2 ke kiri, lalu 1 ke atas."
+          },
+          {
+            "key": "tanda-1",
+            "type": "numeric",
+            "title": "Bilangan bertanda",
+            "prompt": "Hitung $-3 - 5 = \\;?$",
+            "answer": "-8",
+            "wrong_answers": [{"value": "2", "code": "SIGN_FLIP", "message": "Mulai dari −3, lalu mundur 5 lagi."}],
+            "hints": ["Bayangkan garis bilangan: mulai di −3.", "Dikurangi 5 berarti bergerak 5 langkah ke kiri.", "−3 → −4 → −5 → …"],
+            "solution": "$-3 - 5 = -8$."
+          },
+          {
+            "key": "tanda-2",
+            "type": "numeric",
+            "title": "Bilangan bertanda",
+            "prompt": "Hitung $4 - (-2) = \\;?$",
+            "answer": "6",
+            "wrong_answers": [{"value": "2", "code": "SIGN_FLIP", "message": "Mengurangi bilangan negatif sama dengan menambah."}],
+            "hints": ["Perhatikan tanda di dalam kurung.", "$-(-2)$ sama dengan $+2$.", "$4 + 2 = \\dots$"],
+            "solution": "$4 - (-2) = 4 + 2 = 6$."
+          },
+          {
+            "key": "pecahan-1",
+            "type": "numeric",
+            "title": "Pecahan",
+            "prompt": "Sederhanakan $\\dfrac{-6}{4}$. (Boleh tulis seperti `-3/2`.)",
+            "answer": "-3/2",
+            "wrong_answers": [{"value": "3/2", "code": "SIGN_FLIP", "message": "Negatif dibagi positif hasilnya negatif."}],
+            "hints": ["Cari bilangan yang membagi 6 dan 4.", "Bagi pembilang dan penyebut dengan 2.", "$\\dfrac{-6 \\div 2}{4 \\div 2} = \\dots$"],
+            "solution": "$\\dfrac{-6}{4} = \\dfrac{-3}{2}$."
+          },
+          {
+            "key": "pecahan-2",
+            "type": "numeric",
+            "title": "Pecahan",
+            "prompt": "Hitung $\\dfrac{-8}{-2} = \\;?$",
+            "answer": "4",
+            "wrong_answers": [{"value": "-4", "code": "SIGN_FLIP", "message": "Negatif dibagi negatif hasilnya positif."}],
+            "hints": ["Hitung dulu $8 \\div 2$.", "Lalu tentukan tandanya.", "Negatif ÷ negatif = …"],
+            "solution": "$\\dfrac{-8}{-2} = 4$."
+          }
+        ]
+      }
+    }
+  ]
+}

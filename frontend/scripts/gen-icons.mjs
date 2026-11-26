@@ -1,0 +1,36 @@
+// Membuat ikon PWA (PNG) dari SVG maskot Gari. Jalankan: npm run icons
+import sharp from 'sharp';
+import { mkdirSync, writeFileSync } from 'node:fs';
+
+const duck = (bg, scale = 1) => `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  ${bg ? `<rect width="512" height="512" rx="${bg === 'round' ? 112 : 0}" fill="#E6F7F2"/>` : ''}
+  <g transform="translate(256 262) scale(${scale}) translate(-100 -92)">
+    <circle cx="100" cy="88" r="56" fill="#FFD43B"/>
+    <ellipse cx="62" cy="108" rx="10" ry="6" fill="#FF9F8F" opacity="0.45"/>
+    <ellipse cx="138" cy="108" rx="10" ry="6" fill="#FF9F8F" opacity="0.45"/>
+    <ellipse cx="80" cy="84" rx="13" ry="15" fill="#fff"/><circle cx="83" cy="86" r="8" fill="#1F2A33"/><circle cx="86" cy="83" r="2.8" fill="#fff"/>
+    <ellipse cx="120" cy="84" rx="13" ry="15" fill="#fff"/><circle cx="123" cy="86" r="8" fill="#1F2A33"/><circle cx="126" cy="83" r="2.8" fill="#fff"/>
+    <g fill="none" stroke="#1AA39A" stroke-width="5"><rect x="60" y="66" width="38" height="36" rx="13"/><rect x="102" y="66" width="38" height="36" rx="13"/><path d="M98 80 q2 -4 4 0"/></g>
+    <path d="M76 110 C88 98 112 98 124 110 C112 120 88 120 76 110 Z" fill="#FF922B"/>
+    <path d="M86 114 C95 122 105 122 114 114 Z" fill="#E8590C"/>
+    <path d="M46 70 C44 30 74 18 104 18 C136 18 158 38 154 70 Z" fill="#C4E86B"/>
+    <path d="M46 70 C44 30 74 18 104 18 C80 26 66 44 62 70 Z" fill="#B2D957"/>
+    <path d="M60 66 C40 64 14 74 10 86 C30 86 52 80 70 72 Z" fill="#7FB83A"/>
+    <circle cx="104" cy="20" r="5" fill="#9FCB4A"/>
+  </g>
+</svg>`;
+
+mkdirSync('public/icons', { recursive: true });
+const out = [
+  ['public/icons/icon-192.png', 192, duck('round', 2.6)],
+  ['public/icons/icon-512.png', 512, duck('round', 2.6)],
+  ['public/icons/icon-maskable-512.png', 512, duck('square', 2.0)], // safe zone 80%
+  ['public/icons/apple-touch-icon.png', 180, duck('square', 2.4)],
+];
+for (const [file, size, svg] of out) {
+  await sharp(Buffer.from(svg)).resize(size, size).png().toFile(file);
+  console.log('dibuat', file);
+}
+writeFileSync('public/favicon.svg', duck('round', 2.6).trim());
+console.log('dibuat public/favicon.svg');

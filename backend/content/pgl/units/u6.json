@@ -1,0 +1,294 @@
+{
+  "slug": "u6-proyek-tarif",
+  "order_index": 6,
+  "title": "Proyek: Membandingkan Dua Tarif",
+  "goal": "Memodelkan dua tarif, menemukan titik potong, dan mengambil keputusan.",
+  "is_optional": false,
+  "activities": [
+    {
+      "slug": "u6-proyek",
+      "phase": "context_problem",
+      "title": "Sewa sepeda mana yang lebih hemat?",
+      "literacy_processes": [
+        "formulate",
+        "employ",
+        "interpret",
+        "evaluate",
+        "reasoning"
+      ],
+      "indicators": [
+        "F1",
+        "F2",
+        "F3",
+        "E1",
+        "E2",
+        "E3",
+        "I1",
+        "I2"
+      ],
+      "context_category": "transport",
+      "content": {
+        "situation": "Kelas kalian akan bersepeda keliling taman kota. Ada dua tempat sewa. {{s1|Tempat A: biaya pendaftaran Rp10.000, lalu Rp2.000 per jam}}. {{s2|Tempat B: tanpa pendaftaran, Rp4.000 per jam}}. Tempat A {{s3|punya sepeda warna-warni}}. Mana yang lebih hemat?",
+        "steps": [
+          {
+            "key": "baca",
+            "type": "info",
+            "title": "Rumuskan",
+            "process": "formulate",
+            "body": "Ini proyek penutup. Bantuannya lebih sedikit — tapi Gari tetap siap memberi petunjuk.\n\nTiga tahap: **Rumuskan** → **Selesaikan** → **Putuskan**."
+          },
+          {
+            "key": "tandai",
+            "type": "identify_info",
+            "title": "Rumuskan · Tandai",
+            "process": "formulate",
+            "prompt": "Ketuk informasi yang penting untuk membandingkan biaya.",
+            "relevant": [
+              "s1",
+              "s2"
+            ],
+            "hints": [
+              "Informasi mana yang berisi biaya?",
+              "Warna sepeda tidak memengaruhi biaya.",
+              "Ada dua informasi tarif."
+            ],
+            "solution": "Penting: tarif Tempat A dan tarif Tempat B."
+          },
+          {
+            "key": "rencana",
+            "type": "plan",
+            "title": "Rencanakan",
+            "process": "planning",
+            "prompt": "Sebelum menghitung, susun **rencana** penyelesaiannya. Ketuk langkah-langkah sesuai urutan yang tepat.",
+            "items": [
+              {
+                "id": "p3",
+                "text": "Cari kapan biayanya sama (titik potong)"
+              },
+              {
+                "id": "p1",
+                "text": "Tentukan arti x dan y"
+              },
+              {
+                "id": "p4",
+                "text": "Bandingkan untuk lama sewa yang direncanakan"
+              },
+              {
+                "id": "p2",
+                "text": "Susun model tempat A dan B"
+              }
+            ],
+            "answer": [
+              "p1",
+              "p2",
+              "p3",
+              "p4"
+            ],
+            "hints": [
+              "Bisakah kamu mencari titik potong sebelum punya model?",
+              "Model butuh variabel; titik potong butuh dua model.",
+              "Urutannya: variabel → dua model → titik potong → putuskan."
+            ],
+            "solution": "Variabel → dua model → titik potong → putuskan."
+          },
+          {
+            "key": "variabel",
+            "type": "define_variables",
+            "title": "Rumuskan · Variabel",
+            "process": "formulate",
+            "prompt": "Tentukan arti $x$ dan $y$.",
+            "options": [
+              "lama sewa (jam)",
+              "biaya sewa (Rp)",
+              "jumlah sepeda",
+              "jarak tempuh (km)"
+            ],
+            "answer": {
+              "x": "lama sewa (jam)",
+              "y": "biaya sewa (Rp)"
+            },
+            "hints": [
+              "Biaya bergantung pada apa?",
+              "Biaya dihitung per jam.",
+              "$x$ = lama sewa."
+            ],
+            "solution": "$x$ = lama sewa (jam), $y$ = biaya sewa (Rp)."
+          },
+          {
+            "key": "model-a",
+            "type": "linear_model",
+            "title": "Rumuskan · Model A",
+            "process": "formulate",
+            "prompt": "Susun model biaya Tempat A.",
+            "x_label": "jam",
+            "y_label": "biaya (Rp)",
+            "answer": {
+              "m": "2000",
+              "c": "10000"
+            },
+            "hints": [
+              "Mana yang per jam?",
+              "$m$ = Rp2.000 per jam.",
+              "$c$ = biaya pendaftaran."
+            ],
+            "solution": "$y_A = 2000x + 10000$."
+          },
+          {
+            "key": "model-b",
+            "type": "linear_model",
+            "title": "Rumuskan · Model B",
+            "process": "formulate",
+            "prompt": "Susun model biaya Tempat B.",
+            "x_label": "jam",
+            "y_label": "biaya (Rp)",
+            "answer": {
+              "m": "4000",
+              "c": "0"
+            },
+            "hints": [
+              "Apakah ada biaya awal di Tempat B?",
+              "Tanpa pendaftaran berarti $c = 0$.",
+              "$m$ = Rp4.000 per jam."
+            ],
+            "solution": "$y_B = 4000x + 0$, atau $y_B = 4000x$."
+          },
+          {
+            "key": "bandingkan",
+            "type": "explore",
+            "title": "Selesaikan · Bandingkan",
+            "process": "employ",
+            "mode": "compare",
+            "prompt": "Grafik kedua tarif (dalam **ribu rupiah**). Geser penanda jam dan bandingkan biaya keduanya.",
+            "context": {
+              "x_label": "Lama sewa (jam)",
+              "y_label": "Biaya (ribu Rp)",
+              "x_max": 10,
+              "y_max": 40,
+              "y_step": 5,
+              "lines": [
+                {
+                  "m": "2",
+                  "c": "10",
+                  "label": "Tempat A"
+                },
+                {
+                  "m": "4",
+                  "c": "0",
+                  "label": "Tempat B"
+                }
+              ]
+            },
+            "question": {
+              "prompt": "Setelah berapa jam biaya kedua tempat **sama**?",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "3 jam"
+                },
+                {
+                  "id": "b",
+                  "text": "5 jam"
+                },
+                {
+                  "id": "c",
+                  "text": "10 jam"
+                }
+              ],
+              "answer": "b"
+            },
+            "hints": [
+              "Cari tempat kedua garis berpotongan.",
+              "Geser penanda sampai angka biaya keduanya sama.",
+              "Cek: $2000x + 10000 = 4000x$."
+            ],
+            "solution": "Pada 5 jam: A = 2.000×5 + 10.000 = Rp20.000, B = 4.000×5 = Rp20.000."
+          },
+          {
+            "key": "hitung-3",
+            "type": "numeric",
+            "title": "Selesaikan · Hitung",
+            "process": "employ",
+            "prompt": "Berapa selisih biaya kedua tempat untuk sewa **3 jam**?",
+            "unit": "rupiah",
+            "answer": "4000",
+            "wrong_answers": [
+              {
+                "value": "-4000",
+                "code": "SIGN_FLIP",
+                "message": "Selisih biaya ditulis sebagai bilangan positif."
+              }
+            ],
+            "hints": [
+              "Hitung $y_A$ untuk $x = 3$.",
+              "$y_A = 16000$, $y_B = 12000$.",
+              "Selisihnya $16000 - 12000$."
+            ],
+            "solution": "A = Rp16.000, B = Rp12.000, selisihnya Rp4.000."
+          },
+          {
+            "key": "putuskan",
+            "type": "choice",
+            "title": "Putuskan",
+            "process": "interpret",
+            "prompt": "Rencananya kelas kalian bersepeda **8 jam**. Tempat mana yang lebih hemat?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tempat A"
+              },
+              {
+                "id": "b",
+                "text": "Tempat B",
+                "feedback": "Hitung biaya keduanya untuk x = 8."
+              },
+              {
+                "id": "c",
+                "text": "Sama saja",
+                "feedback": "Biaya sama hanya pada 5 jam."
+              }
+            ],
+            "answer": "a",
+            "hints": [
+              "Hitung $y_A$ dan $y_B$ untuk $x = 8$.",
+              "$y_A = 26000$, $y_B = 32000$.",
+              "Yang lebih kecil lebih hemat."
+            ],
+            "solution": "A = Rp26.000, B = Rp32.000 → Tempat A lebih hemat."
+          },
+          {
+            "key": "tafsir",
+            "type": "interpret",
+            "title": "Tafsirkan",
+            "process": "interpret",
+            "prompt": "Tulis aturan sederhana untuk temanmu: kapan sebaiknya memilih Tempat A, dan kapan Tempat B?",
+            "model_answer": "Jika sewa kurang dari 5 jam, pilih Tempat B. Jika lebih dari 5 jam, pilih Tempat A. Tepat 5 jam biayanya sama.",
+            "max_length": 400
+          },
+          {
+            "key": "evaluasi",
+            "type": "evaluate",
+            "title": "Evaluasi",
+            "process": "evaluate",
+            "prompt": "Apakah keputusan hanya bergantung pada harga? Sebutkan satu hal lain yang perlu dipertimbangkan, dan apakah model ini tetap berlaku jika sewa dihitung per jam penuh (misal 4,5 jam dibayar 5 jam).",
+            "model_answer": "Hal lain: kondisi sepeda, jarak tempat sewa, jumlah sepeda tersedia. Jika dihitung per jam penuh, grafiknya berupa tangga, bukan garis lurus; model garis hanya tepat untuk jam bulat.",
+            "max_length": 500
+          },
+          {
+            "key": "refleksi",
+            "type": "reflection",
+            "title": "Jelaskan ke temanmu",
+            "prompt_key": "jelaskan-u6",
+            "prompt": "Ceritakan ke temanmu bagaimana grafik dua garis membantu mengambil keputusan.",
+            "pattern": [
+              "Rumuskan: tentukan x, y, lalu model setiap pilihan.",
+              "Selesaikan: titik potong = saat kedua pilihan sama.",
+              "Putuskan: bandingkan di kiri dan kanan titik potong.",
+              "Evaluasi: pertimbangkan hal di luar model."
+            ],
+            "transfer_prompt": "Keputusan apa lagi dalam hidupmu yang bisa dibandingkan seperti dua garis ini?"
+          }
+        ]
+      }
+    }
+  ]
+}

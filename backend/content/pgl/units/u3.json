@@ -1,0 +1,410 @@
+{
+  "slug": "u3-ymxc",
+  "order_index": 3,
+  "title": "Persamaan y = mx + c dan Makna c",
+  "goal": "Mengenali c sebagai nilai awal dan menyusun model y = mx + c dari situasi.",
+  "is_optional": false,
+  "activities": [
+    {
+      "slug": "u3-jelajah",
+      "phase": "explore",
+      "title": "Apa yang dilakukan c?",
+      "literacy_processes": [
+        "reasoning",
+        "interpret"
+      ],
+      "indicators": [
+        "E3",
+        "I1"
+      ],
+      "content": {
+        "steps": [
+          {
+            "key": "pemantik",
+            "type": "info",
+            "title": "Nilai awal",
+            "body": "Naik ojek: ada **biaya awal**, lalu ditambah **biaya per km**. Biaya per km adalah [[gradien]] $m$. Biaya awal adalah [[konstanta]] $c$.\n\nKita lihat apa yang dilakukan $c$ pada grafik."
+          },
+          {
+            "key": "jelajah-c",
+            "type": "explore",
+            "title": "Jelajah",
+            "mode": "single",
+            "prompt": "Gradien dikunci $m = 1$. Geser slider $c$ ke atas dan ke bawah.",
+            "initial": {
+              "m": "1",
+              "c": "0"
+            },
+            "lock_m": true,
+            "question": {
+              "prompt": "Saat $c$ diubah, apa yang terjadi?",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Garis bergeser naik/turun, kemiringannya tetap"
+                },
+                {
+                  "id": "b",
+                  "text": "Garis makin curam",
+                  "feedback": "Bandingkan kemiringan sebelum dan sesudah c diubah."
+                },
+                {
+                  "id": "c",
+                  "text": "Garis berputar di titik (0, 0)"
+                }
+              ],
+              "answer": "a"
+            },
+            "hints": [
+              "Perhatikan di mana garis memotong sumbu-y.",
+              "Apakah segitiga naik/jalan berubah?",
+              "Titik potong sumbu-y selalu $(0, c)$."
+            ],
+            "solution": "$c$ menggeser garis naik/turun; garis memotong sumbu-y di $(0, c)$. Kemiringan tetap karena $m$ tidak berubah."
+          },
+          {
+            "key": "potong-y",
+            "type": "numeric",
+            "title": "Cek pemahaman",
+            "prompt": "Garis $y = 3x - 4$ memotong sumbu-y di titik $(0, \\;?)$",
+            "answer": "-4",
+            "wrong_answers": [
+              {
+                "value": "4",
+                "code": "SIGN_FLIP",
+                "message": "Perhatikan tanda di depan 4."
+              },
+              {
+                "value": "3",
+                "code": "M_C_SWAP",
+                "message": "3 adalah gradien. Titik potong sumbu-y adalah nilai y saat x = 0."
+              }
+            ],
+            "hints": [
+              "Di sumbu-y, nilai x selalu 0.",
+              "Substitusi x = 0 ke $y = 3x - 4$.",
+              "$y = 3(0) - 4 = \\dots$"
+            ],
+            "solution": "$y = 3(0) - 4 = -4$, jadi titiknya $(0, -4)$."
+          }
+        ]
+      }
+    },
+    {
+      "slug": "u3-contoh",
+      "phase": "example",
+      "title": "Dari cerita ke persamaan",
+      "literacy_processes": [
+        "formulate",
+        "employ"
+      ],
+      "indicators": [
+        "F3",
+        "E2"
+      ],
+      "content": {
+        "steps": [
+          {
+            "key": "contoh",
+            "type": "worked_example",
+            "title": "Saya lakukan",
+            "prompt": "Sewa sepeda: biaya awal Rp3.000, lalu Rp2.000 per jam. Susun [[model_matematika|model matematikanya]].",
+            "lines": [
+              {
+                "label": "Langkah 1 · Tentukan variabel",
+                "tex": "x = \\text{lama sewa (jam)},\\quad y = \\text{biaya (Rp)}"
+              },
+              {
+                "label": "Langkah 2 · Cari yang berubah per satuan",
+                "tex": "m = \\hl{2000}",
+                "note": "Bertambah Rp2.000 setiap 1 jam → gradien."
+              },
+              {
+                "label": "Langkah 3 · Cari nilai awal",
+                "tex": "c = \\hl{3000}",
+                "note": "Dibayar walau baru 0 jam → konstanta."
+              },
+              {
+                "label": "Langkah 4 · Tulis model",
+                "tex": "y = \\hl{2000}x + \\hl{3000}"
+              }
+            ]
+          },
+          {
+            "key": "cocokkan",
+            "type": "choice",
+            "title": "Kita lakukan",
+            "prompt": "Parkir: Rp2.000 untuk masuk, lalu Rp1.000 setiap jam. Model yang tepat adalah …",
+            "options": [
+              {
+                "id": "a",
+                "text": "$y = 1000x + 2000$"
+              },
+              {
+                "id": "b",
+                "text": "$y = 2000x + 1000$",
+                "code": "M_C_SWAP",
+                "feedback": "Mana yang bertambah setiap jam, dan mana yang nilai awal?"
+              },
+              {
+                "id": "c",
+                "text": "$y = 3000x$",
+                "feedback": "Biaya masuk hanya dibayar sekali, tidak dikalikan jam."
+              }
+            ],
+            "answer": "a",
+            "hints": [
+              "Apa yang bertambah setiap jam?",
+              "Rp1.000 per jam → $m$. Rp2.000 sekali di awal → $c$.",
+              "$y = mx + c$ dengan $m = 1000$ …"
+            ],
+            "solution": "$m = 1000$ (per jam), $c = 2000$ (biaya masuk): $y = 1000x + 2000$."
+          },
+          {
+            "key": "model-sendiri",
+            "type": "linear_model",
+            "title": "Kamu lakukan",
+            "prompt": "Pulsa Rina tinggal Rp50.000. Setiap hari ia memakai Rp4.000. Susun model sisa pulsa ($y$) setelah $x$ hari.",
+            "x_label": "hari",
+            "y_label": "sisa pulsa (Rp)",
+            "answer": {
+              "m": "-4000",
+              "c": "50000"
+            },
+            "hints": [
+              "Pulsa bertambah atau berkurang setiap hari?",
+              "Berkurang Rp4.000 per hari → $m$ negatif.",
+              "Nilai awal Rp50.000 → $c$."
+            ],
+            "solution": "$y = -4000x + 50000$."
+          }
+        ]
+      }
+    },
+    {
+      "slug": "u3-konteks",
+      "phase": "context_problem",
+      "title": "Ongkos ojek Raka",
+      "literacy_processes": [
+        "formulate",
+        "employ",
+        "interpret",
+        "evaluate",
+        "reasoning"
+      ],
+      "indicators": [
+        "F1",
+        "F2",
+        "F3",
+        "E2",
+        "I1",
+        "I2",
+        "E1"
+      ],
+      "context_category": "transport",
+      "content": {
+        "situation": "Raka memesan ojek daring untuk pergi ke {{s5|perpustakaan}}. Aplikasi menampilkan aturan tarif: {{s1|biaya awal Rp5.000}}, lalu {{s2|Rp2.500 untuk setiap kilometer}}. Jarak rumah Raka ke perpustakaan {{s3|8 km}}. Raka membawa uang {{s4|Rp30.000}} dan ingin tahu apakah uangnya cukup.",
+        "steps": [
+          {
+            "key": "baca",
+            "type": "info",
+            "title": "Baca situasi",
+            "process": "formulate",
+            "body": "Baca situasinya. Pertanyaan utama: **apakah uang Raka cukup?** (Angka tarif hanya ilustrasi.)"
+          },
+          {
+            "key": "tandai",
+            "type": "identify_info",
+            "title": "Tandai informasi",
+            "process": "formulate",
+            "prompt": "Ketuk bagian yang penting untuk menjawab pertanyaan.",
+            "relevant": [
+              "s1",
+              "s2",
+              "s3",
+              "s4"
+            ],
+            "hints": [
+              "Informasi mana yang berisi angka?",
+              "Tujuan perjalanan tidak memengaruhi biaya.",
+              "Ada empat informasi penting."
+            ],
+            "solution": "Penting: biaya awal Rp5.000, Rp2.500 per km, jarak 8 km, uang Rp30.000."
+          },
+          {
+            "key": "diketahui",
+            "type": "known_asked",
+            "title": "Diketahui & Ditanya",
+            "process": "formulate",
+            "prompt": "Tulis apa yang diketahui dan apa yang ditanyakan.",
+            "required_values": [
+              "5000",
+              "2500",
+              "8",
+              "30000"
+            ],
+            "hints": [
+              "Ada empat angka penting.",
+              "Contoh baris: \"Biaya awal\" = \"Rp5.000\".",
+              "Yang ditanya: cukup atau tidak."
+            ],
+            "solution": "Diketahui: biaya awal Rp5.000; Rp2.500/km; jarak 8 km; uang Rp30.000. Ditanya: apakah uang cukup?"
+          },
+          {
+            "key": "rencana",
+            "type": "plan",
+            "title": "Rencanakan",
+            "process": "planning",
+            "prompt": "Sebelum menghitung, susun **rencana** penyelesaiannya. Ketuk langkah-langkah sesuai urutan yang tepat.",
+            "items": [
+              {
+                "id": "p4",
+                "text": "Bandingkan dengan uang Raka"
+              },
+              {
+                "id": "p2",
+                "text": "Susun model y = mx + c"
+              },
+              {
+                "id": "p1",
+                "text": "Tentukan arti x dan y"
+              },
+              {
+                "id": "p3",
+                "text": "Hitung biaya untuk 8 km"
+              }
+            ],
+            "answer": [
+              "p1",
+              "p2",
+              "p3",
+              "p4"
+            ],
+            "hints": [
+              "Bisakah kamu menghitung biaya sebelum punya model?",
+              "Model butuh arti x dan y lebih dulu.",
+              "Urutannya: variabel → model → hitung → bandingkan dengan uang."
+            ],
+            "solution": "Variabel → model → hitung → bandingkan."
+          },
+          {
+            "key": "variabel",
+            "type": "define_variables",
+            "title": "Tentukan variabel",
+            "process": "formulate",
+            "prompt": "Tentukan arti [[variabel]] $x$ dan $y$.",
+            "options": [
+              "jarak (km)",
+              "biaya (Rp)",
+              "uang Raka (Rp)",
+              "waktu (menit)"
+            ],
+            "answer": {
+              "x": "jarak (km)",
+              "y": "biaya (Rp)"
+            },
+            "hints": [
+              "Apa yang menentukan besar biaya?",
+              "Biaya bergantung pada jarak.",
+              "$x$ = yang memengaruhi, $y$ = yang dipengaruhi."
+            ],
+            "solution": "$x$ = jarak (km), $y$ = biaya (Rp)."
+          },
+          {
+            "key": "model",
+            "type": "linear_model",
+            "title": "Susun model",
+            "process": "formulate",
+            "prompt": "Susun model biaya ojek.",
+            "x_label": "km",
+            "y_label": "biaya (Rp)",
+            "answer": {
+              "m": "2500",
+              "c": "5000"
+            },
+            "hints": [
+              "Mana yang bertambah setiap km?",
+              "$m$ = biaya per km, $c$ = biaya awal.",
+              "$y = 2500x + \\dots$"
+            ],
+            "solution": "$y = 2500x + 5000$."
+          },
+          {
+            "key": "hitung",
+            "type": "numeric",
+            "title": "Selesaikan",
+            "process": "employ",
+            "prompt": "Berapa biaya untuk 8 km?",
+            "unit": "rupiah",
+            "answer": "25000",
+            "wrong_answers": [
+              {
+                "value": "20000",
+                "code": "ARITH",
+                "message": "Jangan lupa biaya awalnya."
+              },
+              {
+                "value": "60000",
+                "code": "M_C_SWAP",
+                "message": "Yang dikalikan jarak adalah biaya per km."
+              }
+            ],
+            "hints": [
+              "Substitusi $x = 8$ ke model.",
+              "$y = 2500(8) + 5000$",
+              "$20000 + 5000 = \\dots$"
+            ],
+            "solution": "$y = 2500(8) + 5000 = 25000$, yaitu Rp25.000."
+          },
+          {
+            "key": "cek-balik",
+            "type": "check_back",
+            "title": "Cek balik",
+            "process": "evaluate",
+            "prompt": "Cek modelmu: berapa biayanya jika jaraknya **0 km**? Hasilnya harus sama dengan biaya awal.",
+            "unit": "rupiah",
+            "answer": "5000",
+            "hints": [
+              "Substitusi $x = 0$.",
+              "$y = 2500(0) + 5000$",
+              "Apakah hasilnya sama dengan biaya awal di cerita?"
+            ],
+            "solution": "$y = 2500(0) + 5000 = 5000$ ✓ sama dengan biaya awal."
+          },
+          {
+            "key": "tafsir",
+            "type": "interpret",
+            "title": "Tafsirkan",
+            "process": "interpret",
+            "prompt": "Apa arti angka **2.500** dalam situasi ini?",
+            "model_answer": "Setiap jarak bertambah 1 km, biayanya naik Rp2.500.",
+            "max_length": 300
+          },
+          {
+            "key": "evaluasi",
+            "type": "evaluate",
+            "title": "Evaluasi",
+            "process": "evaluate",
+            "prompt": "Apakah uang Raka cukup? Bagaimana jika jalan macet dan rutenya menjadi 11 km? Jelaskan.",
+            "model_answer": "Cukup, karena 8 km = Rp25.000 < Rp30.000 (sisa Rp5.000). Jika 11 km, biayanya Rp32.500, jadi tidak cukup.",
+            "max_length": 400
+          },
+          {
+            "key": "refleksi",
+            "type": "reflection",
+            "title": "Jelaskan ke temanmu",
+            "prompt_key": "jelaskan-u3",
+            "prompt": "Jelaskan ke temanmu bedanya $m$ dan $c$ pada tarif ojek, dengan bahasamu sendiri.",
+            "pattern": [
+              "Tentukan dulu arti x dan y beserta satuannya.",
+              "m = yang berubah setiap 1 satuan (per km, per jam).",
+              "c = nilai awal saat x = 0.",
+              "Cek balik dengan x = 0: hasilnya harus sama dengan nilai awal."
+            ],
+            "transfer_prompt": "Pikirkan tarif atau biaya lain di sekitarmu. Mana bagian nilai awal ($c$) dan mana yang per satuan ($m$)?"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[
+  {"key": "koordinat", "term": "Koordinat", "definition": "Pasangan angka (x, y) yang menunjukkan letak titik. Angka pertama: geser ke kanan/kiri, angka kedua: naik/turun.", "example": "(3, 2) artinya 3 ke kanan, 2 ke atas."},
+  {"key": "sumbu", "term": "Sumbu", "definition": "Garis bilangan acuan pada grafik. Sumbu-x mendatar, sumbu-y tegak.", "example": null},
+  {"key": "kartesius", "term": "Bidang Kartesius", "definition": "Bidang datar dengan sumbu-x dan sumbu-y yang berpotongan di titik (0, 0).", "example": null},
+  {"key": "gradien", "term": "Gradien (m)", "definition": "Ukuran kemiringan garis: berapa y berubah setiap x bertambah 1.", "example": "Gradien 2 artinya naik 2 setiap 1 langkah ke kanan."},
+  {"key": "laju_perubahan", "term": "Laju perubahan", "definition": "Besar perubahan suatu nilai untuk setiap satu satuan, misalnya rupiah per km atau liter per jam.", "example": "Rp2.500 per km."},
+  {"key": "konstanta", "term": "Konstanta (c)", "definition": "Bilangan tetap pada persamaan y = mx + c. Pada grafik, c adalah tempat garis memotong sumbu-y; dalam cerita sering berarti nilai awal.", "example": "Biaya awal Rp5.000."},
+  {"key": "persamaan_garis", "term": "Persamaan garis lurus", "definition": "Aturan yang menghubungkan x dan y sehingga semua titiknya membentuk garis lurus, misalnya y = mx + c.", "example": "y = 2x + 1"},
+  {"key": "sejajar", "term": "Sejajar", "definition": "Dua garis yang tidak pernah bertemu. Gradiennya sama.", "example": null},
+  {"key": "tegak_lurus", "term": "Tegak lurus", "definition": "Dua garis yang berpotongan membentuk sudut siku-siku (90°). Hasil kali gradiennya −1.", "example": null},
+  {"key": "titik_potong", "term": "Titik potong", "definition": "Titik tempat dua garis (atau garis dan sumbu) bertemu.", "example": null},
+  {"key": "substitusi", "term": "Substitusi", "definition": "Mengganti huruf (variabel) dengan angka, lalu menghitung.", "example": "Jika x = 3, maka 2x + 1 = 2·3 + 1 = 7."},
+  {"key": "variabel", "term": "Variabel", "definition": "Huruf yang mewakili nilai yang bisa berubah, misalnya x untuk jarak.", "example": null},
+  {"key": "model_matematika", "term": "Model matematika", "definition": "Cara menuliskan situasi nyata dengan bahasa matematika, misalnya persamaan.", "example": "Biaya = 2.500 × jarak + 5.000 ditulis y = 2500x + 5000."}
+]

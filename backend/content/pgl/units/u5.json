@@ -1,0 +1,453 @@
+{
+  "slug": "u5-sejajar-tegak",
+  "order_index": 5,
+  "title": "Garis Sejajar dan Tegak Lurus",
+  "goal": "Memahami hubungan gradien dua garis yang sejajar dan yang tegak lurus.",
+  "is_optional": false,
+  "activities": [
+    {
+      "slug": "u5-jelajah",
+      "phase": "explore",
+      "title": "Dua garis",
+      "literacy_processes": [
+        "reasoning"
+      ],
+      "indicators": [
+        "E3"
+      ],
+      "content": {
+        "steps": [
+          {
+            "key": "pemantik",
+            "type": "info",
+            "title": "Dua jalan",
+            "body": "Di peta kota, ada jalan yang tidak pernah bertemu ([[sejajar]]) dan ada perempatan yang membentuk sudut siku-siku ([[tegak_lurus|tegak lurus]]).\n\nApa hubungan gradien kedua garisnya? Ayo jelajahi pelan-pelan."
+          },
+          {
+            "key": "jelajah-sejajar",
+            "type": "explore",
+            "title": "Jelajah sejajar",
+            "mode": "two",
+            "prompt": "Atur garis 2 supaya **tidak pernah bertemu** garis 1.",
+            "initial": {
+              "m": "2",
+              "c": "1",
+              "m2": "-1",
+              "c2": "-2"
+            },
+            "question": {
+              "prompt": "Agar dua garis sejajar, apa yang harus sama?",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Gradiennya ($m$)"
+                },
+                {
+                  "id": "b",
+                  "text": "Konstantanya ($c$)",
+                  "feedback": "Coba samakan c saja — apakah garisnya bertemu?"
+                },
+                {
+                  "id": "c",
+                  "text": "Tidak ada yang harus sama"
+                }
+              ],
+              "answer": "a"
+            },
+            "hints": [
+              "Coba samakan $m_2$ dengan $m_1$.",
+              "Lihat label status di bawah grafik.",
+              "Kemiringan sama → tidak pernah bertemu."
+            ],
+            "solution": "Garis sejajar memiliki gradien yang sama: $m_1 = m_2$."
+          },
+          {
+            "key": "jelajah-tegak",
+            "type": "explore",
+            "title": "Jelajah tegak lurus",
+            "mode": "two",
+            "prompt": "Garis 1 punya $m_1 = 2$. Ubah $m_2$ sampai muncul tanda siku-siku ⟂. Perhatikan nilai $m_1 \\times m_2$.",
+            "initial": {
+              "m": "2",
+              "c": "0",
+              "m2": "1",
+              "c2": "1"
+            },
+            "question": {
+              "prompt": "Saat kedua garis tegak lurus, $m_1 \\times m_2$ sama dengan …",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "$1$"
+                },
+                {
+                  "id": "b",
+                  "text": "$-1$"
+                },
+                {
+                  "id": "c",
+                  "text": "$0$"
+                }
+              ],
+              "answer": "b"
+            },
+            "hints": [
+              "Coba nilai $m_2$ negatif.",
+              "Coba $m_2 = -\\tfrac{1}{2}$.",
+              "$2 \\times (-\\tfrac{1}{2}) = \\dots$"
+            ],
+            "solution": "Garis tegak lurus: $m_1 \\times m_2 = -1$. Untuk $m_1 = 2$, $m_2 = -\\tfrac{1}{2}$."
+          },
+          {
+            "key": "jelajah-pola",
+            "type": "explore",
+            "title": "Cari pola",
+            "mode": "two",
+            "prompt": "Coba pasangan lain: buat garis 1 dengan $m_1 = 3$, lalu cari $m_2$ yang membuat tegak lurus.",
+            "initial": {
+              "m": "3",
+              "c": "0",
+              "m2": "1",
+              "c2": "0"
+            },
+            "question": {
+              "prompt": "Gradien tegak lurus didapat dengan cara …",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "membalik pecahannya saja"
+                },
+                {
+                  "id": "b",
+                  "text": "membalik pecahannya **dan** mengganti tandanya",
+                  "feedback": null
+                },
+                {
+                  "id": "c",
+                  "text": "mengganti tandanya saja"
+                }
+              ],
+              "answer": "b"
+            },
+            "hints": [
+              "$3 = \\tfrac{3}{1}$. Kebalikannya $\\tfrac{1}{3}$.",
+              "Apakah $3 \\times \\tfrac{1}{3} = -1$?",
+              "Kurang satu hal: tandanya."
+            ],
+            "solution": "Untuk $m_1 = 3$, $m_2 = -\\tfrac{1}{3}$: dibalik dan diganti tanda."
+          }
+        ]
+      }
+    },
+    {
+      "slug": "u5-contoh",
+      "phase": "example",
+      "title": "Menentukan gradien tegak lurus",
+      "literacy_processes": [
+        "employ",
+        "reasoning"
+      ],
+      "indicators": [
+        "E2",
+        "E3"
+      ],
+      "content": {
+        "steps": [
+          {
+            "key": "contoh",
+            "type": "worked_example",
+            "title": "Saya lakukan",
+            "prompt": "Tentukan gradien garis yang tegak lurus dengan $y = 2x + 1$.",
+            "lines": [
+              {
+                "label": "Langkah 1 · Baca gradien garis pertama",
+                "tex": "m_1 = \\hl{2}"
+              },
+              {
+                "label": "Langkah 2 · Syarat tegak lurus",
+                "tex": "m_1 \\times m_2 = -1"
+              },
+              {
+                "label": "Langkah 3 · Substitusi",
+                "tex": "\\hl{2} \\times m_2 = -1"
+              },
+              {
+                "label": "Langkah 4 · Bagi kedua ruas dengan 2",
+                "tex": "m_2 = \\hl{-\\dfrac{1}{2}}",
+                "note": "Dibalik (2 → ½) dan diganti tanda (+ → −)."
+              }
+            ]
+          },
+          {
+            "key": "latihan-1",
+            "type": "numeric",
+            "title": "Kamu lakukan",
+            "prompt": "Gradien garis yang tegak lurus dengan garis bergradien $3$ adalah …",
+            "answer": "-1/3",
+            "wrong_answers": [
+              {
+                "value": "1/3",
+                "code": "RECIPROCAL",
+                "message": "Garis tegak lurus: kebalikan dan lawan tanda."
+              },
+              {
+                "value": "-3",
+                "code": "RECIPROCAL",
+                "message": "Tanda sudah diganti, tapi bilangannya juga perlu dibalik."
+              }
+            ],
+            "hints": [
+              "$3 \\times m_2 = -1$",
+              "Bagi kedua ruas dengan 3.",
+              "$m_2 = \\dfrac{-1}{3}$"
+            ],
+            "solution": "$m_2 = -\\tfrac{1}{3}$."
+          },
+          {
+            "key": "latihan-2",
+            "type": "numeric",
+            "title": "Kamu lakukan",
+            "prompt": "Gradien garis yang tegak lurus dengan garis bergradien $-\\dfrac{2}{3}$ adalah …",
+            "answer": "3/2",
+            "wrong_answers": [
+              {
+                "value": "-3/2",
+                "code": "RECIPROCAL",
+                "message": "Sudah dibalik, sekarang ganti juga tandanya."
+              },
+              {
+                "value": "2/3",
+                "code": "RECIPROCAL",
+                "message": "Tanda sudah diganti, pecahannya juga perlu dibalik."
+              }
+            ],
+            "hints": [
+              "Balik pecahannya: $\\tfrac{2}{3} \\to \\tfrac{3}{2}$.",
+              "Ganti tandanya: negatif menjadi …",
+              "Cek: $-\\tfrac{2}{3} \\times \\tfrac{3}{2} = -1$."
+            ],
+            "solution": "$m_2 = \\tfrac{3}{2}$."
+          },
+          {
+            "key": "latihan-3",
+            "type": "numeric",
+            "title": "Kamu lakukan",
+            "prompt": "Gradien garis yang **sejajar** dengan $y = 4x - 7$ adalah …",
+            "answer": "4",
+            "wrong_answers": [
+              {
+                "value": "-1/4",
+                "code": "RECIPROCAL",
+                "message": "Itu gradien tegak lurus. Garis sejajar gradiennya sama."
+              },
+              {
+                "value": "-7",
+                "code": "M_C_SWAP",
+                "message": "−7 adalah konstanta, bukan gradien."
+              }
+            ],
+            "hints": [
+              "Sejajar → gradien sama.",
+              "Gradien $y = 4x - 7$ adalah angka di depan $x$.",
+              "$m = \\dots$"
+            ],
+            "solution": "Sejajar → $m = 4$."
+          }
+        ]
+      }
+    },
+    {
+      "slug": "u5-konteks",
+      "phase": "context_problem",
+      "title": "Jalan baru di peta",
+      "literacy_processes": [
+        "formulate",
+        "employ",
+        "interpret",
+        "evaluate",
+        "reasoning"
+      ],
+      "indicators": [
+        "F3",
+        "E1",
+        "E2",
+        "I1",
+        "I2"
+      ],
+      "context_category": "space",
+      "content": {
+        "situation": "Pada peta bergrid, Jalan A melalui titik (0, 2) dan (4, 4). Pemerintah akan membangun Jalan B yang tegak lurus dengan Jalan A dan melalui taman di titik (2, 3).",
+        "steps": [
+          {
+            "key": "rencana",
+            "type": "plan",
+            "title": "Rencanakan",
+            "process": "planning",
+            "prompt": "Sebelum menghitung, susun **rencana** penyelesaiannya. Ketuk langkah-langkah sesuai urutan yang tepat.",
+            "items": [
+              {
+                "id": "p3",
+                "text": "Susun persamaan Jalan B lewat taman"
+              },
+              {
+                "id": "p1",
+                "text": "Hitung gradien Jalan A"
+              },
+              {
+                "id": "p4",
+                "text": "Periksa di grafik"
+              },
+              {
+                "id": "p2",
+                "text": "Tentukan gradien Jalan B (tegak lurus)"
+              }
+            ],
+            "answer": [
+              "p1",
+              "p2",
+              "p3",
+              "p4"
+            ],
+            "hints": [
+              "Gradien Jalan B bergantung pada apa?",
+              "Gradien tegak lurus didapat dari gradien Jalan A.",
+              "Urutannya: gradien A → gradien B → persamaan B → periksa."
+            ],
+            "solution": "Gradien A → gradien B → persamaan B → periksa di grafik."
+          },
+          {
+            "key": "gradien-a",
+            "type": "numeric",
+            "title": "Selesaikan",
+            "process": "employ",
+            "prompt": "Hitung gradien Jalan A.",
+            "answer": "1/2",
+            "wrong_answers": [
+              {
+                "value": "2",
+                "code": "ARITH",
+                "message": "Perubahan y ada di atas, perubahan x di bawah."
+              }
+            ],
+            "hints": [
+              "$m_A = \\dfrac{4 - 2}{4 - 0}$",
+              "$\\dfrac{2}{4}$",
+              "Sederhanakan."
+            ],
+            "solution": "$m_A = \\tfrac{2}{4} = \\tfrac{1}{2}$."
+          },
+          {
+            "key": "gradien-b",
+            "type": "numeric",
+            "title": "Selesaikan",
+            "process": "employ",
+            "prompt": "Berapa gradien Jalan B (tegak lurus Jalan A)?",
+            "answer": "-2",
+            "wrong_answers": [
+              {
+                "value": "2",
+                "code": "RECIPROCAL",
+                "message": "Garis tegak lurus: kebalikan dan lawan tanda."
+              },
+              {
+                "value": "-1/2",
+                "code": "RECIPROCAL",
+                "message": "Tanda sudah diganti, tapi pecahannya juga perlu dibalik."
+              }
+            ],
+            "hints": [
+              "$\\tfrac{1}{2} \\times m_B = -1$",
+              "Balik $\\tfrac{1}{2}$ menjadi $2$.",
+              "Lalu ganti tandanya."
+            ],
+            "solution": "$m_B = -2$."
+          },
+          {
+            "key": "model-b",
+            "type": "linear_model",
+            "title": "Susun model",
+            "process": "formulate",
+            "prompt": "Tulis persamaan Jalan B yang melalui $(2, 3)$ dengan gradien $-2$.",
+            "answer": {
+              "m": "-2",
+              "c": "7"
+            },
+            "hints": [
+              "$y - 3 = -2(x - 2)$",
+              "$y - 3 = -2x + 4$",
+              "$y = -2x + 4 + 3$"
+            ],
+            "solution": "$y = -2x + 7$."
+          },
+          {
+            "key": "periksa",
+            "type": "explore",
+            "title": "Periksa di grafik",
+            "process": "evaluate",
+            "mode": "two",
+            "prompt": "Garis 1 adalah Jalan A ($y = \\tfrac{1}{2}x + 2$). Atur garis 2 menjadi persamaan Jalan B milikmu dan lihat apakah muncul tanda ⟂.",
+            "initial": {
+              "m": "1/2",
+              "c": "2",
+              "m2": "1",
+              "c2": "0"
+            },
+            "lock_line1": true,
+            "question": {
+              "prompt": "Apakah Jalan B milikmu tegak lurus dan melalui taman (2, 3)?",
+              "options": [
+                {
+                  "id": "a",
+                  "text": "Ya, ada tanda ⟂ dan garisnya melewati (2, 3)"
+                },
+                {
+                  "id": "b",
+                  "text": "Belum, aku perlu memperbaiki persamaanku"
+                }
+              ],
+              "answer": "a"
+            },
+            "hints": [
+              "Atur $m_2 = -2$ dan $c_2 = 7$.",
+              "Perhatikan apakah garis 2 melewati titik (2, 3).",
+              "Lihat label status di bawah grafik."
+            ],
+            "solution": "Dengan $y = -2x + 7$, kedua garis tegak lurus dan Jalan B melewati (2, 3)."
+          },
+          {
+            "key": "tafsir",
+            "type": "interpret",
+            "title": "Tafsirkan",
+            "process": "interpret",
+            "prompt": "Gradien Jalan B adalah $-2$. Apa artinya bagi arah Jalan B di peta?",
+            "model_answer": "Setiap bergeser 1 kotak ke kanan, Jalan B turun 2 kotak. Jadi Jalan B menurun tajam dari kiri atas ke kanan bawah.",
+            "max_length": 300
+          },
+          {
+            "key": "evaluasi",
+            "type": "evaluate",
+            "title": "Evaluasi",
+            "process": "evaluate",
+            "prompt": "Jalan A dan Jalan B ternyata bertemu tepat di titik (2, 3), yaitu di taman. Tunjukkan bahwa titik itu ada di kedua jalan, lalu jelaskan: apakah membangun perempatan tepat di dalam taman masuk akal?",
+            "model_answer": "Jalan A: ½·2 + 2 = 3 ✓. Jalan B: −2·2 + 7 = 3 ✓. Secara matematika benar, tetapi di dunia nyata perempatan di dalam taman bisa merusak taman, jadi perencana mungkin perlu menggeser jalan atau membuat jalan memutar.",
+            "max_length": 500
+          },
+          {
+            "key": "refleksi",
+            "type": "reflection",
+            "title": "Jelaskan ke temanmu",
+            "prompt_key": "jelaskan-u5",
+            "prompt": "Temanmu menjawab bahwa gradien garis yang tegak lurus dengan $m = 2$ adalah $\\tfrac{1}{2}$. Bagaimana kamu menjelaskan kesalahannya?",
+            "pattern": [
+              "Sejajar: gradien sama (m₁ = m₂).",
+              "Tegak lurus: m₁ × m₂ = −1.",
+              "Cara cepat tegak lurus: balik pecahannya, lalu ganti tandanya.",
+              "Cek di grafik: harus ada sudut siku-siku."
+            ],
+            "transfer_prompt": "Di mana kamu pernah melihat garis sejajar atau tegak lurus di sekitarmu? Apa gunanya?"
+          }
+        ]
+      }
+    }
+  ]
+}

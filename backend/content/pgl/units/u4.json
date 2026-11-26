@@ -1,0 +1,440 @@
+{
+  "slug": "u4-menyusun",
+  "order_index": 4,
+  "title": "Menyusun Persamaan Garis",
+  "goal": "Menyusun persamaan garis dari dua titik atau dari grafik, lalu mengeceknya.",
+  "is_optional": false,
+  "activities": [
+    {
+      "slug": "u4-baca-grafik",
+      "phase": "explore",
+      "title": "Membaca titik dari grafik",
+      "literacy_processes": [
+        "employ"
+      ],
+      "indicators": [
+        "E2"
+      ],
+      "content": {
+        "steps": [
+          {
+            "key": "pemantik",
+            "type": "info",
+            "title": "Kenapa membaca titik?",
+            "body": "Untuk menulis persamaan dari grafik, kita perlu **dua titik** yang jelas dilalui garis. Pilih titik yang tepat berada di persilangan garis grid supaya [[koordinat|koordinatnya]] bulat."
+          },
+          {
+            "key": "baca-1",
+            "type": "read_point",
+            "title": "Baca titik · bantuan penuh",
+            "prompt": "Ketuk dua titik berwarna pada garis. Koordinatnya akan muncul.",
+            "line": {
+              "m": "2",
+              "c": "-1"
+            },
+            "level": 1,
+            "grid": {
+              "x_min": -4,
+              "x_max": 4,
+              "y_min": -5,
+              "y_max": 5
+            },
+            "hints": [
+              "Titik berwarna adalah tempat garis tepat melewati persilangan grid.",
+              "Ketuk dua titik yang berbeda.",
+              "Contoh: titik di sumbu-y."
+            ],
+            "solution": "Contoh titik pada garis: (0, −1) dan (1, 1)."
+          },
+          {
+            "key": "baca-2",
+            "type": "read_point",
+            "title": "Baca titik · bantuan sedang",
+            "prompt": "Titik ditandai, tetapi koordinatnya kamu tulis sendiri.",
+            "line": {
+              "m": "-1",
+              "c": "2"
+            },
+            "level": 2,
+            "grid": {
+              "x_min": -4,
+              "x_max": 4,
+              "y_min": -5,
+              "y_max": 5
+            },
+            "hints": [
+              "Mulai dari (0, 0), hitung kotak ke kanan/kiri lalu ke atas/bawah.",
+              "Titik pada sumbu-y punya x = 0.",
+              "Ingat urutan $(x, y)$."
+            ],
+            "solution": "Contoh titik pada garis: (0, 2) dan (2, 0)."
+          },
+          {
+            "key": "baca-3",
+            "type": "read_point",
+            "title": "Baca titik · mandiri",
+            "prompt": "Sekarang tanpa penanda. Tulis dua titik yang dilalui garis.",
+            "line": {
+              "m": "1/2",
+              "c": "1"
+            },
+            "level": 3,
+            "grid": {
+              "x_min": -4,
+              "x_max": 4,
+              "y_min": -4,
+              "y_max": 4
+            },
+            "hints": [
+              "Cari tempat garis tepat melewati persilangan grid.",
+              "Gradien ½: tiap 2 ke kanan naik 1, jadi titik bulat muncul setiap 2 langkah.",
+              "Coba x = 0 dan x = 2."
+            ],
+            "solution": "Contoh titik: (0, 1) dan (2, 2)."
+          }
+        ]
+      }
+    },
+    {
+      "slug": "u4-contoh",
+      "phase": "example",
+      "title": "Dari dua titik ke persamaan",
+      "literacy_processes": [
+        "employ",
+        "evaluate"
+      ],
+      "indicators": [
+        "E1",
+        "E2",
+        "I2"
+      ],
+      "content": {
+        "steps": [
+          {
+            "key": "contoh-1",
+            "type": "worked_example",
+            "title": "Saya lakukan",
+            "prompt": "Tentukan persamaan garis yang melalui $(1, 5)$ dan $(3, 9)$.",
+            "lines": [
+              {
+                "label": "Langkah 1 · Cari gradien",
+                "tex": "m = \\dfrac{9 - 5}{3 - 1} = \\dfrac{4}{2} = \\hl{2}"
+              },
+              {
+                "label": "Langkah 2 · Pilih satu titik",
+                "tex": "(x_1, y_1) = (\\hl{1}, \\hl{5})"
+              },
+              {
+                "label": "Langkah 3 · Masukkan ke rumus",
+                "tex": "y - \\hl{5} = \\hl{2}(x - \\hl{1})",
+                "note": "Rumus: y − y₁ = m(x − x₁)."
+              },
+              {
+                "label": "Langkah 4 · Kalikan ke dalam kurung",
+                "tex": "y - 5 = \\hl{2x - 2}"
+              },
+              {
+                "label": "Langkah 5 · Pindahkan −5 ke kanan",
+                "tex": "y = 2x - 2 \\hl{+ 5}"
+              },
+              {
+                "label": "Langkah 6 · Sederhanakan",
+                "tex": "y = 2x \\hl{+ 3}"
+              },
+              {
+                "label": "Langkah 7 · Cek balik dengan (3, 9)",
+                "tex": "2(3) + 3 = 9 \\ \\checkmark",
+                "note": "Titik kedua cocok, jadi persamaannya benar."
+              }
+            ]
+          },
+          {
+            "key": "contoh-2",
+            "type": "worked_example",
+            "title": "Kita lakukan",
+            "prompt": "Tentukan persamaan garis melalui $(2, 1)$ dan $(4, 7)$. Isi langkah yang kosong.",
+            "lines": [
+              {
+                "label": "Langkah 1 · Cari gradien",
+                "tex": "m = \\dfrac{7 - 1}{4 - 2} = \\dfrac{6}{2} = \\hl{3}"
+              },
+              {
+                "label": "Langkah 2 · Masukkan ke rumus",
+                "tex": "y - 1 = 3(x - 2)"
+              },
+              {
+                "label": "Langkah 3 · Kalikan ke dalam kurung",
+                "tex": "y - 1 = 3x - 6"
+              },
+              {
+                "label": "Langkah 4 · Pindahkan −1 ke kanan. Nilai c =",
+                "tex": "y = 3x +",
+                "blank": {
+                  "answer": "-5",
+                  "wrong_answers": [
+                    {
+                      "value": "-7",
+                      "code": "SIGN_FLIP",
+                      "message": "Memindahkan −1 ke kanan menjadi +1: −6 + 1 = …"
+                    },
+                    {
+                      "value": "5",
+                      "code": "SIGN_FLIP",
+                      "message": "Periksa tandanya: −6 + 1 hasilnya negatif."
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Langkah 5 · Cek balik dengan (4, 7)",
+                "tex": "3(4) - 5 = 7 \\ \\checkmark"
+              }
+            ],
+            "hints": [
+              "Dari $y - 1 = 3x - 6$, tambahkan 1 ke kedua ruas.",
+              "$y = 3x - 6 + 1$",
+              "$-6 + 1 = \\dots$"
+            ],
+            "solution": "$y = 3x - 6 + 1 = 3x - 5$, jadi $c = -5$."
+          },
+          {
+            "key": "latihan-dua-titik",
+            "type": "linear_model",
+            "title": "Kamu lakukan",
+            "prompt": "Tentukan persamaan garis yang melalui $(0, -2)$ dan $(2, 4)$.",
+            "answer": {
+              "m": "3",
+              "c": "-2"
+            },
+            "hints": [
+              "Hitung gradien lebih dulu.",
+              "$m = \\dfrac{4 - (-2)}{2 - 0} = \\dfrac{6}{2}$",
+              "Titik $(0, -2)$ ada di sumbu-y, jadi $c$ = …"
+            ],
+            "solution": "$m = 3$, dan karena melalui $(0, -2)$, $c = -2$: $y = 3x - 2$."
+          },
+          {
+            "key": "cek-balik",
+            "type": "check_back",
+            "title": "Cek balik",
+            "prompt": "Cek persamaan $y = 3x - 2$ dengan titik $(2, 4)$: hitung $3(2) - 2$.",
+            "answer": "4",
+            "hints": [
+              "Ganti x dengan 2.",
+              "$3 \\times 2 = 6$",
+              "$6 - 2 = \\dots$"
+            ],
+            "solution": "$3(2) - 2 = 4$ ✓ sama dengan y titik (2, 4)."
+          },
+          {
+            "key": "latihan-grafik",
+            "type": "read_point",
+            "title": "Dari grafik",
+            "prompt": "Tulis dua titik yang dilalui garis ini. Langkah berikutnya kamu akan menyusun persamaannya.",
+            "line": {
+              "m": "-2",
+              "c": "3"
+            },
+            "level": 3,
+            "grid": {
+              "x_min": -4,
+              "x_max": 4,
+              "y_min": -5,
+              "y_max": 5
+            },
+            "hints": [
+              "Cari titik potong dengan sumbu-y.",
+              "Dari titik itu, geser 1 ke kanan: garis turun berapa?",
+              "Contoh: $(0, 3)$ dan $(1, 1)$."
+            ],
+            "solution": "Contoh: $(0, 3)$ dan $(1, 1)$."
+          },
+          {
+            "key": "model-grafik",
+            "type": "linear_model",
+            "title": "Dari grafik",
+            "prompt": "Dari titik yang kamu baca tadi, tulis persamaan garisnya.",
+            "answer": {
+              "m": "-2",
+              "c": "3"
+            },
+            "hints": [
+              "Hitung gradien dari dua titikmu.",
+              "Garis turun 2 setiap 1 ke kanan.",
+              "Garis memotong sumbu-y di 3."
+            ],
+            "solution": "$y = -2x + 3$."
+          }
+        ]
+      }
+    },
+    {
+      "slug": "u4-konteks",
+      "phase": "context_problem",
+      "title": "Biaya cetak tugas",
+      "literacy_processes": [
+        "formulate",
+        "employ",
+        "interpret",
+        "evaluate",
+        "reasoning"
+      ],
+      "indicators": [
+        "F1",
+        "F3",
+        "E1",
+        "E2",
+        "I1",
+        "I2"
+      ],
+      "context_category": "money",
+      "content": {
+        "situation": "Sebuah tempat fotokopi di dekat sekolah memasang daftar harga cetak. Mencetak {{s1|20 lembar biayanya Rp7.000}}. Mencetak {{s2|50 lembar biayanya Rp13.000}}. Tempat itu {{s3|buka sampai pukul 21.00}}. Biayanya selalu mengikuti pola garis lurus.",
+        "steps": [
+          {
+            "key": "tandai",
+            "type": "identify_info",
+            "title": "Tandai informasi",
+            "process": "formulate",
+            "prompt": "Ketuk informasi yang dibutuhkan untuk menyusun model biaya.",
+            "relevant": [
+              "s1",
+              "s2"
+            ],
+            "hints": [
+              "Model biaya butuh pasangan jumlah lembar dan biaya.",
+              "Jam buka tidak memengaruhi biaya.",
+              "Ada dua pasangan angka."
+            ],
+            "solution": "Penting: 20 lembar → Rp7.000 dan 50 lembar → Rp13.000."
+          },
+          {
+            "key": "rencana",
+            "type": "plan",
+            "title": "Rencanakan",
+            "process": "planning",
+            "prompt": "Sebelum menghitung, susun **rencana** penyelesaiannya. Ketuk langkah-langkah sesuai urutan yang tepat.",
+            "items": [
+              {
+                "id": "p2",
+                "text": "Cari c dengan substitusi satu titik"
+              },
+              {
+                "id": "p4",
+                "text": "Cek balik dengan titik yang lain"
+              },
+              {
+                "id": "p1",
+                "text": "Hitung gradien dari dua pasangan data"
+              },
+              {
+                "id": "p3",
+                "text": "Tulis model y = mx + c"
+              }
+            ],
+            "answer": [
+              "p1",
+              "p2",
+              "p3",
+              "p4"
+            ],
+            "hints": [
+              "Apa yang dicari lebih dulu: m atau c?",
+              "c dicari dengan substitusi setelah m diketahui.",
+              "Urutannya: gradien → c → model → cek balik."
+            ],
+            "solution": "Gradien → c → model → cek balik."
+          },
+          {
+            "key": "gradien",
+            "type": "numeric",
+            "title": "Selesaikan",
+            "process": "employ",
+            "prompt": "Pakai titik $(20, 7000)$ dan $(50, 13000)$. Berapa biaya per lembar ($m$)?",
+            "unit": "rupiah per lembar",
+            "answer": "200",
+            "wrong_answers": [
+              {
+                "value": "-200",
+                "code": "ORDER_MISMATCH",
+                "message": "Urutan titik di atas dan di bawah harus sama."
+              }
+            ],
+            "hints": [
+              "$m = \\dfrac{13000 - 7000}{50 - 20}$",
+              "$\\dfrac{6000}{30}$",
+              "$6000 \\div 30 = \\dots$"
+            ],
+            "solution": "$m = \\dfrac{6000}{30} = 200$ rupiah per lembar."
+          },
+          {
+            "key": "model",
+            "type": "linear_model",
+            "title": "Susun model",
+            "process": "formulate",
+            "prompt": "Susun model biaya $y$ untuk $x$ lembar.",
+            "x_label": "lembar",
+            "y_label": "biaya (Rp)",
+            "answer": {
+              "m": "200",
+              "c": "3000"
+            },
+            "hints": [
+              "Kamu sudah punya $m = 200$.",
+              "Substitusi titik $(20, 7000)$: $7000 = 200(20) + c$.",
+              "$7000 = 4000 + c$, jadi $c = \\dots$"
+            ],
+            "solution": "$y = 200x + 3000$."
+          },
+          {
+            "key": "cek-balik",
+            "type": "check_back",
+            "title": "Cek balik",
+            "process": "evaluate",
+            "prompt": "Cek modelmu dengan 50 lembar: hitung $200(50) + 3000$.",
+            "unit": "rupiah",
+            "answer": "13000",
+            "hints": [
+              "$200 \\times 50 = 10000$",
+              "Tambahkan 3000.",
+              "Apakah sama dengan Rp13.000?"
+            ],
+            "solution": "$200(50) + 3000 = 13000$ ✓"
+          },
+          {
+            "key": "tafsir",
+            "type": "interpret",
+            "title": "Tafsirkan",
+            "process": "interpret",
+            "prompt": "Apa arti angka 200 dan 3.000 dalam situasi ini?",
+            "model_answer": "200: setiap tambah 1 lembar, biaya naik Rp200. 3.000: biaya tetap (misalnya biaya layanan) yang dibayar berapa pun jumlah lembarnya.",
+            "max_length": 400
+          },
+          {
+            "key": "evaluasi",
+            "type": "evaluate",
+            "title": "Evaluasi",
+            "process": "evaluate",
+            "prompt": "Menurut model, mencetak 0 lembar biayanya Rp3.000. Apakah itu masuk akal di dunia nyata? Jelaskan.",
+            "model_answer": "Kurang masuk akal, karena orang tidak membayar jika tidak mencetak. Model hanya cocok untuk jumlah lembar di sekitar data yang diketahui (x > 0).",
+            "max_length": 400
+          },
+          {
+            "key": "refleksi",
+            "type": "reflection",
+            "title": "Jelaskan ke temanmu",
+            "prompt_key": "jelaskan-u4",
+            "prompt": "Temanmu mau menulis persamaan garis dari dua titik. Tuliskan urutan langkahnya dengan bahasamu sendiri.",
+            "pattern": [
+              "Cari gradien dari dua titik.",
+              "Pilih satu titik (x₁, y₁).",
+              "Masukkan ke y − y₁ = m(x − x₁), lalu sederhanakan satu langkah demi satu langkah.",
+              "Cek balik dengan titik yang lain."
+            ],
+            "transfer_prompt": "Kapan kebiasaan cek balik berguna di luar pelajaran matematika?"
+          }
+        ]
+      }
+    }
+  ]
+}

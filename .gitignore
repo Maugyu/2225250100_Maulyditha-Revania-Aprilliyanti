@@ -1,0 +1,29 @@
+# Dependensi & build
+node_modules/
+frontend/dist/
+frontend/dev-dist/
+backend/.venv/
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Rahasia & data (JANGAN di-commit — SECURITY_AND_PRIVACY §7)
+.env
+*.db
+*.db-journal
+backend/data/
+backend/exports/
+*.csv
+!backend/tests/fixtures/**/*.csv
+
+# Dokumen berisi data/foto siswa
+Laporan Hasil Wawancara.pdf
+
+# Editor/OS
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db

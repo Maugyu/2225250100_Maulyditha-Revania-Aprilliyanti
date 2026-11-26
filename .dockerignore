@@ -1,0 +1,15 @@
+**/node_modules
+**/.venv
+**/__pycache__
+**/.pytest_cache
+**/.ruff_cache
+frontend/dist
+frontend/dev-dist
+backend/data
+backend/exports
+**/.env
+**/*.db
+**/*.csv
+project-planning
+Laporan Hasil Wawancara.pdf
+.git

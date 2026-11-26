@@ -1,0 +1,309 @@
+.shell {
+  min-height: 100dvh;
+}
+
+/* ---------- Sidebar (desktop ≥ 1024 px) ---------- */
+.sidebar {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .shell {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+  }
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-3) var(--space-3);
+    background: var(--color-surface);
+    border-right: 1.5px solid var(--color-border);
+    overflow-y: auto;
+  }
+}
+.brand {
+  padding: 0 var(--space-2) var(--space-3);
+  border-bottom: 1.5px solid var(--color-border);
+}
+.moduleSelect select {
+  border: 0;
+  border-bottom: 1.5px solid var(--color-border);
+  border-radius: 0;
+  background: transparent;
+  font-weight: 600;
+  padding: var(--space-2);
+  cursor: pointer;
+}
+.nav {
+  display: grid;
+  gap: 2px;
+}
+.navItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 46px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+}
+.navItem svg {
+  color: var(--color-text-muted);
+}
+.navItem:hover {
+  background: var(--color-surface-2);
+}
+.navOn {
+  background: var(--color-surface-2);
+  font-weight: 700;
+}
+.navOn::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 10px;
+  bottom: 10px;
+  width: 4px;
+  border-radius: 4px;
+  background: var(--color-mint);
+}
+.navOn svg {
+  color: var(--color-accent);
+}
+.sep {
+  border: 0;
+  border-top: 1.5px solid var(--color-border);
+  margin: var(--space-2) var(--space-3);
+}
+
+.promo {
+  position: relative;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #1f3b4d 0%, #26525e 100%);
+  color: #fff;
+  overflow: hidden;
+}
+.promoText {
+  display: grid;
+  gap: var(--space-2);
+  z-index: 1;
+}
+.promoBrand {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  opacity: 0.85;
+}
+.promoText strong {
+  font-size: 1.15rem;
+  line-height: 1.2;
+  max-width: 11ch;
+}
+.promoBtn {
+  justify-self: start;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  font-weight: 800;
+  padding: 6px 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.promoDuck {
+  margin: -8px -10px -14px 0;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-1) 0;
+  border-top: 1.5px solid var(--color-border);
+}
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-panel);
+  border: 1.5px solid var(--color-border);
+  overflow: hidden;
+  flex: none;
+}
+.profileText {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  line-height: 1.25;
+}
+.profileText strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.profileText span {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+.iconBtn {
+  width: 40px;
+  height: 40px;
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-text-muted);
+}
+.iconBtn:hover {
+  background: var(--color-surface-2);
+  color: var(--color-text);
+}
+
+/* ---------- Ponsel/tablet (< 1024 px) ---------- */
+.mobileTop {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-4);
+  background: color-mix(in srgb, var(--color-bg) 85%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+.mobileTopActions {
+  display: flex;
+  align-items: center;
+}
+.bottomNav {
+  position: fixed;
+  z-index: 20;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 4px 4px calc(4px + env(safe-area-inset-bottom));
+  background: var(--color-surface);
+  border-top: 1.5px solid var(--color-border);
+}
+.bottomItem {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding: 6px 0;
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+.bottomOn {
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+.main {
+  min-width: 0;
+  padding-bottom: 84px;
+}
+@media (min-width: 1024px) {
+  .mobileTop,
+  .bottomNav {
+    display: none;
+  }
+  .main {
+    padding-bottom: 0;
+  }
+}
+
+/* ---------- Tanya Gari di bilah samping (ADR-021) ---------- */
+.bottomNav5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.gariNavBtn {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.aiBadge {
+  margin-left: auto;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+.gariDrawer {
+  position: fixed;
+  z-index: 40;
+  left: 8px;
+  right: 8px;
+  bottom: calc(68px + env(safe-area-inset-bottom));
+  height: min(78dvh, 640px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-primary);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+.gariDrawerHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+.gariDrawerHead > div {
+  flex: 1;
+  min-width: 0;
+}
+.gariDrawerHead h2 {
+  margin: 0;
+  font-size: var(--text-lg);
+}
+.gariDrawerHead span {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+.gariDrawerHead button {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.gariDrawerBody {
+  overflow-y: auto;
+  padding: var(--space-3);
+}
+.gariDrawerBody ol {
+  max-height: none;
+}
+@media (min-width: 1024px) {
+  .gariDrawer {
+    left: auto;
+    right: 24px;
+    top: 24px;
+    bottom: 24px;
+    width: 380px;
+    height: auto;
+  }
+}

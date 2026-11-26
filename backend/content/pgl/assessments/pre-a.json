@@ -1,0 +1,69 @@
+{
+  "slug": "pgl-pre-a",
+  "kind": "pre",
+  "title": "Asesmen Awal",
+  "instructions": "Ada 3 masalah. Kerjakan semampumu — tidak ada nilai rapor. Jawabanmu tersimpan otomatis. Tidak ada petunjuk di asesmen ini. DRAF: butir perlu divalidasi ahli.",
+  "items": [
+    {
+      "item_key": "m1-paket-data",
+      "indicators": ["F1", "F3", "E2", "I1", "I2"],
+      "prompt": {
+        "title": "Masalah 1 · Paket data",
+        "situation": "Sebuah kartu perdana {{s1|sudah berisi kuota 2 GB}}. Setiap kali {{s2|membeli voucer, kuota bertambah 3 GB}}. Kartu itu {{s3|berwarna merah}} dan dibeli di {{s4|toko dekat sekolah}}.",
+        "steps": [
+          {"key": "tandai", "type": "identify_info", "prompt": "Tandai informasi yang penting untuk menghitung total kuota."},
+          {"key": "variabel", "type": "define_variables", "prompt": "Tentukan arti $x$ dan $y$.", "options": ["banyak voucer", "total kuota (GB)", "harga kartu (Rp)", "lama pemakaian (hari)"]},
+          {"key": "model", "type": "linear_model", "prompt": "Susun model total kuota.", "x_label": "voucer", "y_label": "kuota (GB)"},
+          {"key": "hitung", "type": "numeric", "prompt": "Berapa total kuota setelah membeli 4 voucer?", "unit": "GB"},
+          {"key": "tafsir", "type": "interpret", "prompt": "Apa arti angka 3 dalam model yang kamu susun?"},
+          {"key": "evaluasi", "type": "evaluate", "prompt": "Apakah model ini masih masuk akal jika kuota juga dipakai setiap hari? Jelaskan."}
+        ]
+      },
+      "answer_key": {
+        "tandai": {"type": "identify_info", "indicator": "F1", "relevant": ["s1", "s2"]},
+        "variabel": {"type": "define_variables", "x": "banyak voucer", "y": "total kuota (GB)"},
+        "model": {"type": "linear_model", "indicator": "F3", "m": "3", "c": "2"},
+        "hitung": {"type": "numeric", "indicator": "E2", "value": "14"}
+      }
+    },
+    {
+      "item_key": "m2-suhu",
+      "indicators": ["F3", "E1", "E2", "I1", "I2"],
+      "prompt": {
+        "title": "Masalah 2 · Air dipanaskan",
+        "situation": "Saat praktikum, air dipanaskan. Pada menit ke-2 suhunya 34°C, pada menit ke-6 suhunya 50°C. Kenaikan suhunya tetap setiap menit.",
+        "steps": [
+          {"key": "strategi", "type": "interpret", "prompt": "Jelaskan singkat cara yang akan kamu pakai untuk menemukan kenaikan suhu per menit."},
+          {"key": "gradien", "type": "numeric", "prompt": "Berapa kenaikan suhu per menit?", "unit": "°C per menit"},
+          {"key": "model", "type": "linear_model", "prompt": "Susun model suhu $y$ setelah $x$ menit.", "x_label": "menit", "y_label": "suhu (°C)"},
+          {"key": "tafsir", "type": "interpret", "prompt": "Apa arti nilai $c$ pada modelmu?"},
+          {"key": "evaluasi", "type": "evaluate", "prompt": "Menurut modelmu, berapa suhu pada menit ke-30? Apakah hasil itu masuk akal untuk air? Jelaskan."}
+        ]
+      },
+      "answer_key": {
+        "gradien": {"type": "numeric", "indicator": "E2", "value": "4"},
+        "model": {"type": "linear_model", "indicator": "F3", "m": "4", "c": "26"}
+      }
+    },
+    {
+      "item_key": "m3-dua-paket",
+      "indicators": ["F3", "E2", "E3", "I1", "I2"],
+      "prompt": {
+        "title": "Masalah 3 · Dua tempat les",
+        "situation": "Les renang P: pendaftaran Rp30.000, lalu Rp10.000 per pertemuan. Les renang Q: tanpa pendaftaran, Rp15.000 per pertemuan.",
+        "steps": [
+          {"key": "model-p", "type": "linear_model", "prompt": "Model biaya les P.", "x_label": "pertemuan", "y_label": "biaya (Rp)"},
+          {"key": "model-q", "type": "linear_model", "prompt": "Model biaya les Q.", "x_label": "pertemuan", "y_label": "biaya (Rp)"},
+          {"key": "sama", "type": "numeric", "prompt": "Setelah berapa pertemuan biaya keduanya sama?", "unit": "pertemuan"},
+          {"key": "alasan", "type": "explain", "prompt": "Jelaskan bagaimana kamu menemukan jawaban di atas."},
+          {"key": "putuskan", "type": "evaluate", "prompt": "Rani ingin ikut 10 pertemuan. Les mana yang kamu sarankan? Jelaskan alasanmu."}
+        ]
+      },
+      "answer_key": {
+        "model-p": {"type": "linear_model", "indicator": "F3", "m": "10000", "c": "30000"},
+        "model-q": {"type": "linear_model", "indicator": "F3", "m": "15000", "c": "0"},
+        "sama": {"type": "numeric", "indicator": "E2", "value": "6"}
+      }
+    }
+  ]
+}

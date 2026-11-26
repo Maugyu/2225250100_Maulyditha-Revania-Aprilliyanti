@@ -1,0 +1,298 @@
+{
+  "slug": "u1-tabel-grafik",
+  "order_index": 1,
+  "title": "Dari Tabel ke Grafik",
+  "goal": "Membuat grafik dari tabel nilai dan melihat bahwa titik-titiknya membentuk garis lurus.",
+  "is_optional": false,
+  "activities": [
+    {
+      "slug": "u1-jelajah",
+      "phase": "explore",
+      "title": "Tabungan Dina",
+      "literacy_processes": [
+        "formulate",
+        "interpret"
+      ],
+      "indicators": [
+        "F1",
+        "I1"
+      ],
+      "context_category": "money",
+      "content": {
+        "situation": "Dina sudah punya tabungan Rp20.000. Setiap minggu ia menabung lagi Rp5.000.",
+        "steps": [
+          {
+            "key": "pemantik",
+            "type": "info",
+            "title": "Situasi",
+            "body": "Dina sudah punya tabungan **Rp20.000**. Setiap minggu ia menabung lagi **Rp5.000**.\n\nDi unit ini kamu akan melihat bagaimana tabel angka bisa berubah menjadi gambar garis — dan apa arti setiap titiknya."
+          },
+          {
+            "key": "tabel",
+            "type": "numeric",
+            "title": "Lengkapi tabel",
+            "prompt": "Minggu ke-0 tabungannya 20 (ribu rupiah), minggu ke-1 menjadi 25. Berapa tabungan Dina di **minggu ke-3** (dalam ribu rupiah)?",
+            "unit": "ribu rupiah",
+            "answer": "35",
+            "wrong_answers": [
+              {
+                "value": "15",
+                "code": "ARITH",
+                "message": "Tabungan bertambah setiap minggu, bukan berkurang."
+              }
+            ],
+            "hints": [
+              "Setiap minggu bertambah berapa?",
+              "Mulai dari 20, tambah 5 untuk setiap minggu.",
+              "Minggu 1: 25, minggu 2: 30, minggu 3: …"
+            ],
+            "solution": "20 → 25 → 30 → 35. Jadi minggu ke-3 tabungannya 35 ribu rupiah."
+          },
+          {
+            "key": "plot",
+            "type": "plot_points",
+            "title": "Gambar titik",
+            "prompt": "Tempatkan titik dari tabel ke grid. Sumbu-x = minggu, sumbu-y = tabungan (ribu rupiah).",
+            "table": {
+              "x_label": "Minggu (x)",
+              "y_label": "Tabungan, ribu Rp (y)"
+            },
+            "grid": {
+              "x_min": 0,
+              "x_max": 5,
+              "y_min": 0,
+              "y_max": 45,
+              "y_step": 5,
+              "x_label": "Minggu",
+              "y_label": "Tabungan (ribu Rp)"
+            },
+            "points": [
+              [
+                0,
+                20
+              ],
+              [
+                1,
+                25
+              ],
+              [
+                2,
+                30
+              ],
+              [
+                3,
+                35
+              ],
+              [
+                4,
+                40
+              ]
+            ],
+            "show_line": true,
+            "hints": [
+              "Satu baris tabel = satu titik $(x, y)$.",
+              "Cari minggu di sumbu mendatar, lalu naik sampai angka tabungannya.",
+              "Titik pertama: $(0, 20)$ — tepat di sumbu-y, setinggi 20."
+            ],
+            "solution": "Titik-titiknya: (0, 20), (1, 25), (2, 30), (3, 35), (4, 40)."
+          },
+          {
+            "key": "amati",
+            "type": "choice",
+            "title": "Amati",
+            "prompt": "Apa yang kamu perhatikan dari letak titik-titik tadi?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Titik-titiknya membentuk garis lurus yang naik"
+              },
+              {
+                "id": "b",
+                "text": "Titik-titiknya acak, tidak ada pola",
+                "feedback": "Coba lihat lagi: setiap titik naik sama banyak."
+              },
+              {
+                "id": "c",
+                "text": "Titik-titiknya membentuk garis yang turun",
+                "feedback": "Tabungan bertambah, jadi garisnya ke mana?"
+              }
+            ],
+            "answer": "a",
+            "hints": [
+              "Setiap ke kanan 1 minggu, titiknya naik berapa?",
+              "Kenaikannya selalu sama, yaitu 5.",
+              "Kenaikan yang selalu sama membuat titik-titiknya …"
+            ],
+            "solution": "Karena bertambah sama banyak (5) setiap minggu, titik-titiknya membentuk garis lurus yang naik."
+          }
+        ]
+      }
+    },
+    {
+      "slug": "u1-contoh",
+      "phase": "example",
+      "title": "Dari persamaan ke grafik",
+      "literacy_processes": [
+        "employ"
+      ],
+      "indicators": [
+        "E2"
+      ],
+      "content": {
+        "steps": [
+          {
+            "key": "contoh",
+            "type": "worked_example",
+            "title": "Contoh terbimbing",
+            "prompt": "Buat tabel dari [[persamaan_garis|persamaan]] $y = 2x + 1$.",
+            "lines": [
+              {
+                "label": "Langkah 1 · Pilih nilai x",
+                "tex": "x = -1,\\ 0,\\ 1,\\ 2",
+                "note": "Pilih beberapa x yang mudah dihitung."
+              },
+              {
+                "label": "Langkah 2 · Substitusi x = 0",
+                "tex": "y = 2(\\hl{0}) + 1 = 1",
+                "note": "Ganti x dengan 0."
+              },
+              {
+                "label": "Langkah 3 · Substitusi x = 1",
+                "tex": "y = 2(\\hl{1}) + 1 = 3"
+              },
+              {
+                "label": "Langkah 4 · Substitusi x = −1",
+                "tex": "y = 2(\\hl{-1}) + 1 = \\hl{-1}",
+                "note": "Hati-hati tanda: 2 × (−1) = −2."
+              },
+              {
+                "label": "Langkah 5 · Kamu coba: x = 2",
+                "tex": "y = 2(\\hl{2}) + 1 =",
+                "blank": {
+                  "answer": "5"
+                }
+              }
+            ],
+            "hints": [
+              "Ganti x dengan 2.",
+              "$2 \\times 2 = 4$.",
+              "$4 + 1 = \\dots$"
+            ],
+            "solution": "$y = 2(2) + 1 = 5$."
+          },
+          {
+            "key": "plot-negatif",
+            "type": "plot_points",
+            "title": "Coba sendiri",
+            "prompt": "Gambar titik-titik dari tabel $y = 2x + 1$ berikut.",
+            "table": {
+              "x_label": "x",
+              "y_label": "y"
+            },
+            "grid": {
+              "x_min": -3,
+              "x_max": 3,
+              "y_min": -4,
+              "y_max": 6
+            },
+            "points": [
+              [
+                -2,
+                -3
+              ],
+              [
+                -1,
+                -1
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                5
+              ]
+            ],
+            "show_line": true,
+            "hints": [
+              "Titik dengan x negatif ada di kiri sumbu-y.",
+              "$(-2, -3)$: 2 ke kiri, 3 ke bawah.",
+              "Periksa tanda setiap koordinat sebelum mengetuk."
+            ],
+            "solution": "Titik: (−2, −3), (−1, −1), (0, 1), (1, 3), (2, 5)."
+          }
+        ]
+      }
+    },
+    {
+      "slug": "u1-konteks",
+      "phase": "context_problem",
+      "title": "Membaca arti titik",
+      "literacy_processes": [
+        "interpret",
+        "evaluate"
+      ],
+      "indicators": [
+        "I1",
+        "I2"
+      ],
+      "context_category": "money",
+      "content": {
+        "situation": "Grafik tabungan Dina melalui titik (0, 20), (1, 25), dan seterusnya. Sumbu-x menyatakan minggu, sumbu-y menyatakan tabungan dalam ribu rupiah.",
+        "steps": [
+          {
+            "key": "hitung",
+            "type": "numeric",
+            "title": "Selesaikan",
+            "process": "employ",
+            "prompt": "Jika polanya berlanjut, berapa tabungan Dina pada minggu ke-6 (ribu rupiah)?",
+            "unit": "ribu rupiah",
+            "answer": "50",
+            "hints": [
+              "Minggu ke-4 tabungannya 40.",
+              "Tambah 5 untuk setiap minggu berikutnya.",
+              "Minggu 5: 45, minggu 6: …"
+            ],
+            "solution": "40 + 5 + 5 = 50 ribu rupiah."
+          },
+          {
+            "key": "tafsir",
+            "type": "interpret",
+            "title": "Tafsirkan",
+            "process": "interpret",
+            "prompt": "Titik $(6, 50)$ ada di grafik. Jelaskan arti titik itu dengan kalimatmu sendiri.",
+            "model_answer": "Pada minggu ke-6, tabungan Dina berjumlah Rp50.000.",
+            "max_length": 300
+          },
+          {
+            "key": "evaluasi",
+            "type": "evaluate",
+            "title": "Evaluasi",
+            "process": "evaluate",
+            "prompt": "Jika garisnya diperpanjang ke kiri, garis melewati titik $(-1, 15)$. Apakah titik ini masuk akal untuk cerita tabungan Dina? Jelaskan.",
+            "model_answer": "Tidak masuk akal, karena minggu ke −1 tidak ada dalam cerita (Dina mulai dari minggu ke-0). Jadi model hanya berlaku untuk x ≥ 0.",
+            "max_length": 300
+          },
+          {
+            "key": "refleksi",
+            "type": "reflection",
+            "title": "Jelaskan ke temanmu",
+            "prompt_key": "jelaskan-u1",
+            "prompt": "Temanmu bertanya: \"Kenapa titik-titik tabungan Dina bisa membentuk garis lurus?\" Jelaskan dengan bahasamu sendiri.",
+            "pattern": [
+              "Satu baris tabel = satu titik (x, y).",
+              "x dibaca mendatar, y dibaca tegak.",
+              "Jika y bertambah sama banyak setiap x bertambah 1, titik-titiknya membentuk garis lurus.",
+              "Selalu cek: apakah titik itu masuk akal dalam cerita?"
+            ],
+            "transfer_prompt": "Di mana lagi kamu menemukan sesuatu yang bertambah sama banyak setiap waktu? Sebutkan satu contoh."
+          }
+        ]
+      }
+    }
+  ]
+}
